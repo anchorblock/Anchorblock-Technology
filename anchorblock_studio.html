@@ -536,6 +536,10 @@ html {
 
 /* Anchorblock visual refresh — spacious product storytelling with original systems artwork. */
 body { background: #F5F5F7; }
+html, body { max-width: 100%; }
+body { overflow-x: clip; }
+img, video, iframe { max-width: 100%; }
+html { scroll-padding-top: 6rem; }
 .ambient-mesh { opacity: .28; }
 .orb-coral { background: radial-gradient(circle, rgba(255, 130, 117, .15) 0%, rgba(255,130,117,0) 70%); }
 .orb-indigo { background: radial-gradient(circle, rgba(116, 139, 255, .15) 0%, rgba(116,139,255,0) 70%); }
@@ -649,6 +653,42 @@ html.brand-opening-pending .brand-opening {
 .career-card { transition: transform .3s ease, box-shadow .3s ease; }
 .career-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(29,29,31,.09); }
 #careers, #site-custom-sections { scroll-margin-top: 6rem; }
+.admin-floating-button { position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 60; display: inline-flex; min-height: 3.5rem; align-items: center; gap: .65rem; border: 1px solid rgba(211,216,232,.95); border-radius: 999px; background: rgba(255,255,255,.96); padding: .45rem 1rem .45rem .5rem; color: #1d1d1f; box-shadow: 0 12px 32px rgba(18,27,66,.2), 0 2px 8px rgba(18,27,66,.1); font: 700 .76rem 'Plus Jakarta Sans',sans-serif; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; backdrop-filter: blur(16px); }
+.admin-floating-button:hover { transform: translateY(-3px); border-color: #a5b4fc; box-shadow: 0 16px 38px rgba(18,27,66,.25), 0 3px 10px rgba(18,27,66,.12); }
+.admin-floating-button:focus-visible { outline: 3px solid rgba(79,70,229,.34); outline-offset: 4px; }
+.admin-floating-button img { display: block; width: 2.55rem; height: 2.55rem; border-radius: 50%; object-fit: cover; }
+#toast { bottom: calc(5.25rem + env(safe-area-inset-bottom)); right: max(1rem, env(safe-area-inset-right)); }
+@media (max-width: 1279px) {
+  header nav { display: none !important; }
+  #menu-btn { display: inline-flex !important; }
+  #mobile-nav { display: block; }
+  #mobile-nav.hidden { display: none; }
+}
+@media (min-width: 1280px) {
+  #mobile-nav, #menu-btn { display: none !important; }
+  header nav { display: flex !important; }
+}
+@media (max-width: 639px) {
+  header > div:first-child { min-height: 3.75rem; height: auto; padding: .5rem .65rem; gap: .5rem; }
+  header > div:first-child > a:first-child { min-width: 0; gap: .55rem; }
+  header > div:first-child > a:first-child > div:first-child { width: 2.25rem; height: 2.25rem; flex: 0 0 2.25rem; }
+  header > div:first-child > a:first-child > div:last-child { min-width: 0; }
+  header > div:first-child > a:first-child .font-bold.text-sm { font-size: .72rem; }
+  header > div:first-child > a:first-child .font-bold.text-sm > span { display: none; }
+  .hero-intro { min-height: max(94svh, 42rem); padding-top: 5.5rem; padding-bottom: 3.5rem; }
+  main > div.absolute.inset-x-0.top-0 { height: max(94svh, 42rem) !important; }
+  .hero-telemetry { margin-top: 2.25rem; padding: .5rem; }
+  .hero-telemetry > div { min-height: 3.4rem; padding: .75rem .8rem; }
+  .hero-intro p { margin-bottom: 1.75rem; font-size: 1rem; }
+  .hero-intro .hero-copy + div a { width: 100%; justify-content: center; padding: .9rem 1.1rem; }
+  .admin-modal { align-items: start; padding: .4rem; }
+  .admin-dialog { width: 100%; max-height: calc(100dvh - .8rem); border-radius: 1.2rem; }
+  .admin-dialog > .sticky { position: sticky; }
+  .admin-floating-button { right: max(.75rem, env(safe-area-inset-right)); bottom: max(.75rem, env(safe-area-inset-bottom)); min-height: 3.1rem; padding: .35rem .8rem .35rem .4rem; }
+  .admin-floating-button img { width: 2.3rem; height: 2.3rem; }
+  #toast { left: max(.75rem, env(safe-area-inset-left)); right: auto; max-width: calc(100vw - 1.5rem); }
+  #careers, #site-custom-sections, #team, #studio, #work, #opensource, #capabilities, #industries, #contact { scroll-margin-top: 5rem; }
+}
 </style>
 </head>
 <body class="relative min-h-screen text-ink antialiased selection:bg-coral-100 selection:text-coral-600">
@@ -674,6 +714,10 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
   <span id="toast-message">Copied to clipboard</span>
 </div>
+<button type="button" data-admin-open class="admin-floating-button" aria-label="Open Anchorblock admin login">
+  <img src="anchorblock_logo.jpeg" alt="" width="200" height="200" loading="eager">
+  <span>Admin</span>
+</button>
 
 <!-- Admin sign-in and publishing workspace -->
 <div id="admin-modal" class="admin-modal hidden" aria-hidden="true">
@@ -756,14 +800,14 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
       <div class="flex flex-col">
         <span class="font-bold text-sm tracking-tight text-ink flex items-center gap-1.5">
           Anchorblock Technology
-          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-stone-200/60 text-ink-muted font-medium">LLC</span>
+          <span class="hidden sm:inline-flex text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-stone-200/60 text-ink-muted font-medium">LLC</span>
         </span>
-        <span class="text-[11px] text-ink-muted font-body">Information Technology &amp; Services</span>
+        <span class="hidden sm:block text-[11px] text-ink-muted font-body">Information Technology &amp; Services</span>
       </div>
     </a>
 
     <!-- Primary Nav Links -->
-    <nav class="hidden lg:flex items-center gap-1 text-xs font-medium text-ink-muted">
+    <nav class="hidden xl:flex items-center gap-1 text-xs font-medium text-ink-muted">
       <a href="#philosophy" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Who we are</a>
       <a href="#work" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Products</a> 
       <a href="#opensource" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Open Source</a>
@@ -776,20 +820,16 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
 
     <!-- Header Actions -->
     <div class="flex items-center gap-3">
-      <button type="button" data-admin-open class="hidden xl:inline-flex items-center gap-2 px-3 py-2.5 rounded-full border border-stone-200 bg-white/65 text-[11px] font-semibold text-ink-muted hover:border-indigo-300 hover:text-indigo-700 transition-colors">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM4 17v-1a6 6 0 0 1 12 0v1H4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Admin login
-      </button>
       <!-- Let's Talk CTA -->
       <a href="#contact" class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 text-xs font-semibold tracking-wide text-white bg-ink hover:bg-coral-600 transition-colors duration-300 rounded-full shadow-sm active:scale-95">
-        <span>Start a conversation</span>
-        <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span class="hidden sm:inline">Start a conversation</span><span class="sm:hidden">Talk</span>
+        <svg class="hidden sm:block w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
         </svg>
       </a>
 
       <!-- Mobile Menu Toggle Button -->
-      <button id="menu-btn" class="lg:hidden p-2 rounded-xl text-ink-muted hover:text-ink hover:bg-stone-200/50 focus:outline-none" aria-label="Toggle navigation menu">
+      <button id="menu-btn" class="xl:hidden p-2 rounded-xl text-ink-muted hover:text-ink hover:bg-stone-200/50 focus:outline-none" aria-label="Toggle navigation menu">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -798,7 +838,7 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
   </div>
 
   <!-- Mobile Dropdown Navigation -->
-  <div id="mobile-nav" class="hidden lg:hidden max-w-7xl mx-auto mt-2 rounded-2xl bg-porcelain/95 backdrop-blur-xl border border-stone-200 shadow-xl px-6 py-5 text-sm space-y-3 font-medium">
+  <div id="mobile-nav" class="hidden xl:hidden max-w-7xl mx-auto mt-2 rounded-2xl bg-porcelain/95 backdrop-blur-xl border border-stone-200 shadow-xl px-6 py-5 text-sm space-y-3 font-medium">
     <a href="#philosophy" class="block text-ink-muted hover:text-ink py-1">Who we are</a>
     <a href="#work" class="block text-ink-muted hover:text-ink py-1">Products</a>
     <a href="#opensource" class="block text-ink-muted hover:text-ink py-1">Open Source</a>
@@ -933,7 +973,7 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
           <div class="absolute top-0 left-0 right-0 h-1 bg-indigo-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
           <span class="mb-2 block font-mono text-[11px] font-semibold tracking-wider text-slate-400">02 / CORE TEAM</span>
           <div class="flex items-baseline gap-1.5 font-bold tracking-tight text-ink text-4xl sm:text-5xl">
-            <span>06</span>
+            <span>07</span>
             <span class="font-mono text-xs font-semibold uppercase text-indigo-600 tracking-normal">Specialists</span>
           </div>
           <p class="mt-2 text-sm font-bold text-ink">Engineering &amp; Design</p>
@@ -1846,7 +1886,7 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
           <!-- Interactive OpenStreetMap with animated office locator -->
           <div class="lg:col-span-6 flex justify-center">
             <div class="studio-card w-full max-w-[560px] rounded-[2rem] p-3 sm:p-4 relative overflow-hidden bg-white">
-              <div class="flex items-center justify-between gap-3 px-3 py-3 text-xs font-mono text-ink-subtle">
+              <div class="flex flex-wrap items-center justify-between gap-2 px-3 py-3 text-[10px] sm:text-xs font-mono text-ink-subtle">
                 <span class="font-semibold tracking-wide">MIRPUR DOHS, DHAKA</span>
                 <span class="text-emerald-600 font-semibold">23.83719° N / 90.36898° E</span>
               </div>
@@ -1894,7 +1934,7 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
               <span>06 / TEAM</span>
             </div>
             <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink">
-              Six people. <br><em>One direction.</em>
+              Seven people. <br><em>One direction.</em>
             </h2>
             <p class="text-ink-muted font-body text-base sm:text-lg leading-relaxed">
               Engineering, data, and design in the same conversation. We stay close to what we build — from schema and interface to the production alert that arrives at 3 a.m.
@@ -1972,6 +2012,17 @@ if (document.documentElement.classList.contains('brand-opening-pending')) {
                 <div class="space-y-2 border-t border-stone-200/80 pt-3 text-[11px] font-mono">
                   <a href="mailto:mahim@anchorblock.vc" class="block text-ink-muted hover:text-sky-700 transition-colors">mahim@anchorblock.vc</a>
                   <a href="tel:+8801843886963" class="block text-ink-muted hover:text-sky-700 transition-colors">+880 1843 886 963</a>
+                </div>
+              </article>
+
+              <article class="studio-card p-5 sm:p-6 rounded-3xl">
+                <div class="flex items-center gap-3.5 mb-4">
+                  <div class="w-11 h-11 rounded-xl bg-violet-50 border border-violet-100 flex items-center justify-center font-mono text-xs font-bold text-violet-700 shrink-0">AK</div>
+                  <div><h3 class="font-bold text-ink">Alif Khan</h3><p class="text-[11px] font-mono text-violet-700 mt-0.5">UI/UX Designer</p></div>
+                </div>
+                <div class="space-y-2 border-t border-stone-200/80 pt-3 text-[11px] font-mono">
+                  <a href="mailto:khanalif004700@gmail.com" class="block break-words text-ink-muted hover:text-violet-700 transition-colors">khanalif004700@gmail.com</a>
+                  <a href="tel:+8801879949707" class="block text-ink-muted hover:text-violet-700 transition-colors">01879949707</a>
                 </div>
               </article>
 

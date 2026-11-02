@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Anchorblock Technology — Software &amp; Data Systems Studio</title>
 <meta name="description" content="Anchorblock Technology LLC is a software, web platform and data systems studio in Banani, Dhaka. High-throughput platforms, telemetry architecture and automation for fintech and logistics.">
-<meta name="theme-color" content="#FAF9F5">
+<meta name="theme-color" content="#FBF9F5">
 
-<!-- Google Fonts: Plus Jakarta Sans, Instrument Serif, Inter, JetBrains Mono -->
+<!-- Google Fonts: Plus Jakarta Sans, Newsreader (Elegant Editorial Serif), Inter, JetBrains Mono -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -19,44 +19,53 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        porcelain: '#FAF9F5',
-        'porcelain-alt': '#F4F2EC',
-        ink: '#111827',
-        'ink-muted': '#4B5563',
-        'ink-subtle': '#9CA3AF',
+        porcelain: '#FBF9F5',
+        'porcelain-alt': '#F3EFE6',
+        obsidian: '#0B0E14',
+        ink: {
+          DEFAULT: '#141821',
+          muted: '#475569',
+          subtle: '#94A3B8'
+        },
         coral: {
           50: '#FFF5F2',
           100: '#FFE8E2',
-          500: '#FF5733',
-          600: '#E64724'
+          400: '#FF7457',
+          500: '#F25533',
+          600: '#D94120'
         },
         indigo: {
           50: '#EEF2FF',
           100: '#E0E7FF',
+          400: '#818CF8',
           500: '#4F46E5',
           600: '#4338CA'
         },
         emerald: {
           50: '#ECFDF5',
           100: '#D1FAE5',
+          400: '#34D399',
           500: '#10B981',
           600: '#059669'
         },
         marigold: {
           50: '#FFFBEB',
           100: '#FEF3C7',
+          400: '#FBBF24',
           500: '#F59E0B',
           600: '#D97706'
         },
         iris: {
           50: '#F5F3FF',
           100: '#EDE9FE',
+          400: '#A78BFA',
           500: '#8B5CF6',
           600: '#7C3AED'
         },
         azure: {
           50: '#F0F9FF',
           100: '#E0F2FE',
+          400: '#38BDF8',
           500: '#0EA5E9',
           600: '#0284C7'
         }
@@ -64,7 +73,7 @@ tailwind.config = {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
-        serif: ['Instrument Serif', 'serif'],
+        serif: ['Newsreader', 'Instrument Serif', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace']
       }
     }
@@ -73,21 +82,35 @@ tailwind.config = {
 </script>
 
 <style>
-/* Base Reset & Smooth Typography */
+/* Base Reset & Eye-Soothing Typography */
 html {
-  background-color: #FAF9F5;
-  color: #111827;
+  background-color: #FBF9F5;
+  color: #141821;
   font-family: 'Plus Jakarta Sans', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background-color: #FFE8E2;
-  color: #E64724;
+  color: #D94120;
 }
 
-/* Floating Ambient Chromatic Mesh */
+/* Editorial Serif Styling */
+.display-title {
+  letter-spacing: -0.032em;
+}
+
+.display-title em {
+  font-family: 'Newsreader', 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  padding-right: 0.04em;
+}
+
+/* Soft Ambient Background Mesh */
 .ambient-mesh {
   position: fixed;
   inset: 0;
@@ -100,40 +123,40 @@ html {
 .orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(100px);
+  filter: blur(110px);
   will-change: transform;
 }
 
 .orb-coral {
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, rgba(255, 87, 51, 0.22) 0%, rgba(255, 87, 51, 0) 70%);
-  top: -100px;
-  right: -50px;
-  animation: driftOne 26s ease-in-out infinite alternate;
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, rgba(242, 85, 51, 0.16) 0%, rgba(242, 85, 51, 0) 70%);
+  top: -120px;
+  right: -60px;
+  animation: driftOne 28s ease-in-out infinite alternate;
 }
 
 .orb-indigo {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.18) 0%, rgba(79, 70, 229, 0) 70%);
-  top: 35%;
-  left: -120px;
-  animation: driftTwo 30s ease-in-out infinite alternate;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.14) 0%, rgba(79, 70, 229, 0) 70%);
+  top: 36%;
+  left: -140px;
+  animation: driftTwo 32s ease-in-out infinite alternate;
 }
 
 .orb-emerald {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, rgba(16, 185, 129, 0) 70%);
-  bottom: 10%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.13) 0%, rgba(16, 185, 129, 0) 70%);
+  bottom: 8%;
   right: 5%;
-  animation: driftThree 28s ease-in-out infinite alternate;
+  animation: driftThree 30s ease-in-out infinite alternate;
 }
 
 @keyframes driftOne {
   0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-80px, 90px) scale(1.12); }
+  100% { transform: translate(-80px, 90px) scale(1.1); }
 }
 @keyframes driftTwo {
   0% { transform: translate(0, 0) scale(1); }
@@ -144,43 +167,69 @@ html {
   100% { transform: translate(-60px, -80px) scale(0.95); }
 }
 
-/* Editorial Serif Emphasis */
-.display-title em {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+/* Subtle Architectural Grid Overlay */
+.arch-grid-dark {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-/* Subtle Card Elevation */
+.dot-matrix-light {
+  background-image: radial-gradient(rgba(20, 24, 33, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Eye-Soothing Studio Card Elevation */
 .studio-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(229, 231, 235, 0.85);
-  box-shadow: 0 4px 20px -2px rgba(17, 24, 39, 0.03), 0 1px 3px 0 rgba(17, 24, 39, 0.02);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 222, 213, 0.9);
+  box-shadow: 
+    0 1px 2px rgba(20, 24, 33, 0.02),
+    0 12px 32px -8px rgba(20, 24, 33, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .studio-card:hover {
-  border-color: rgba(209, 213, 219, 1);
-  box-shadow: 0 16px 32px -8px rgba(17, 24, 39, 0.07), 0 2px 6px 0 rgba(17, 24, 39, 0.03);
+  background: #FFFFFF;
+  border-color: rgba(203, 198, 188, 1);
+  box-shadow: 
+    0 4px 12px rgba(20, 24, 33, 0.03),
+    0 24px 48px -12px rgba(20, 24, 33, 0.08);
+  transform: translateY(-2px);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #FAF9F5;
-}
-::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+/* Obsidian Glass Card for Parallax Window */
+.glass-card-dark {
+  background: rgba(17, 21, 30, 0.68);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Subtle Marquee Animation */
+.glass-card-dark:hover {
+  background: rgba(23, 28, 40, 0.82);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+}
+
+/* Animated Flow Lines */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.animate-flow {
+  animation: flowDash 1.5s linear infinite;
+}
+
+/* Marquee Animation */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -188,10 +237,36 @@ html {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 36s linear infinite;
 }
 .marquee-wrap:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* Smooth Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6D3CD;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A29E;
 }
 </style>
 </head>
@@ -205,47 +280,48 @@ html {
 </div>
 
 <!-- Toast Feedback Notification -->
-<div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none bg-ink text-white font-mono text-xs px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2">
-  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 transition-all duration-300 pointer-events-none bg-obsidian/95 backdrop-blur-md border border-white/15 text-white font-mono text-xs px-5 py-3 rounded-full shadow-2xl flex items-center gap-2.5">
+  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
   <span id="toast-message">Copied to clipboard</span>
 </div>
 
-<!-- ==================== HEADER ==================== -->
-<header class="sticky top-0 z-40 backdrop-blur-md bg-porcelain/80 border-b border-stone-200/60 transition-colors">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- ==================== FLOATING ARCHITECTURAL HEADER ==================== -->
+<header class="sticky top-0 z-40 pt-3 px-4 sm:px-6 lg:px-8 transition-all duration-300">
+  <div class="max-w-7xl mx-auto rounded-2xl backdrop-blur-xl bg-porcelain/85 border border-stone-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+    
     <!-- Brand Logo -->
-    <a href="#top" class="group flex items-center gap-3 focus:outline-none" aria-label="Anchorblock Technology home">
-      <div class="w-10 h-10 rounded-full bg-white border border-stone-200 flex items-center justify-center shadow-sm group-hover:border-ink transition-colors">
-  <img 
-    src="anchorblock_logo.jpeg"
-    alt="Icon" 
-    class="w-50 h-50 object-contain transition-transform duration-500 group-hover:rotate-12"
-  />
-</div>
+    <a href="#top" class="group flex items-center gap-3.5 focus:outline-none" aria-label="Anchorblock Technology home">
+      <div class="w-10 h-10 rounded-xl bg-white border border-stone-200/90 flex items-center justify-center shadow-sm group-hover:border-ink transition-all overflow-hidden p-1">
+        <img 
+          src="anchorblock_logo.jpeg"
+          alt="Anchorblock Icon" 
+          onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-serif italic font-bold text-lg text-ink\'>A</span>';"
+          class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
       <div class="flex flex-col">
         <span class="font-bold text-sm tracking-tight text-ink flex items-center gap-1.5">
           Anchorblock Technology
-          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-stone-100 text-ink-muted border border-stone-200">LLC</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-stone-200/60 text-ink-muted font-medium">LLC</span>
         </span>
         <span class="text-[11px] text-ink-muted font-body">Information Technology &amp; Services</span>
       </div>
     </a>
 
     <!-- Primary Nav Links -->
-    <nav class="hidden md:flex items-center gap-8 text-xs font-medium text-ink-muted">
-      <a href="#philosophy" class="hover:text-ink transition-colors">Who we are</a>
-    
-      <a href="#work" class="hover:text-ink transition-colors">Products</a> 
-      <a href="#industries" class="hover:text-ink transition-colors">Industries</a>
-      <a href="#studio" class="hover:text-ink transition-colors">Career</a>
-      
-       <a href="#Team" class="hover:text-ink transition-colors">Team</a>
+    <nav class="hidden lg:flex items-center gap-1 text-xs font-medium text-ink-muted">
+      <a href="#philosophy" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Who we are</a>
+      <a href="#work" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Products</a> 
+      <a href="#capabilities" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Capabilities</a>
+      <a href="#industries" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Industries</a>
+      <a href="#studio" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Career</a>
+      <a href="#team" class="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all">Team</a>
     </nav>
 
     <!-- Header Actions: Live Dhaka Clock & Pill CTA -->
     <div class="flex items-center gap-3">
       <!-- Live Dhaka Clock Badge -->
-      <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-stone-200 text-xs font-mono text-ink-muted shadow-sm">
+      <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-stone-200/80 text-xs font-mono text-ink-muted shadow-sm">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -255,7 +331,7 @@ html {
       </div>
 
       <!-- Let's Talk CTA -->
-      <a href="#contact" class="inline-flex items-center justify-center px-4 py-2 text-xs font-medium tracking-wide text-white bg-ink hover:bg-stone-800 transition-all rounded-full shadow-sm hover:shadow active:scale-95">
+      <a href="#contact" class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 text-xs font-semibold tracking-wide text-white bg-ink hover:bg-coral-600 transition-colors duration-300 rounded-full shadow-sm active:scale-95">
         <span>Start a conversation</span>
         <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -263,7 +339,7 @@ html {
       </a>
 
       <!-- Mobile Menu Toggle Button -->
-      <button id="menu-btn" class="md:hidden p-2 text-ink-muted hover:text-ink focus:outline-none" aria-label="Toggle navigation menu">
+      <button id="menu-btn" class="lg:hidden p-2 rounded-xl text-ink-muted hover:text-ink hover:bg-stone-200/50 focus:outline-none" aria-label="Toggle navigation menu">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -272,12 +348,13 @@ html {
   </div>
 
   <!-- Mobile Dropdown Navigation -->
-  <div id="mobile-nav" class="hidden md:hidden bg-porcelain border-b border-stone-200 px-6 py-5 text-sm space-y-3 font-medium">
+  <div id="mobile-nav" class="hidden lg:hidden max-w-7xl mx-auto mt-2 rounded-2xl bg-porcelain/95 backdrop-blur-xl border border-stone-200 shadow-xl px-6 py-5 text-sm space-y-3 font-medium">
     <a href="#philosophy" class="block text-ink-muted hover:text-ink py-1">Who we are</a>
-  
     <a href="#work" class="block text-ink-muted hover:text-ink py-1">Products</a>
+    <a href="#capabilities" class="block text-ink-muted hover:text-ink py-1">Capabilities</a>
     <a href="#industries" class="block text-ink-muted hover:text-ink py-1">Industries</a>
     <a href="#studio" class="block text-ink-muted hover:text-ink py-1">Career</a>
+    <a href="#team" class="block text-ink-muted hover:text-ink py-1">Team</a>
 
     <div class="pt-3 border-t border-stone-200 flex items-center justify-between text-xs font-mono text-ink-muted">
       <span>Dhaka GMT+6</span>
@@ -286,207 +363,238 @@ html {
   </div>
 </header>
 
-<main id="top" class="relative z-10">
+<main id="top" class="relative">
 
-  <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-[90vh] flex items-center pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-stone-950">
-  
-  <!-- Background Video Element -->
-  <video
-    autoplay
-    loop
-    muted
-    playsinline
-    class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-0 scale-105 transform motion-safe:animate-pulse-subtle"
-  >
-    <!-- Cinematic Dark Tech / Particles / Digital Grid Loop -->
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
-    <!-- You can also swap in your own local asset (e.g. src="/assets/hero-bg.mp4") -->
-  </video>
+  <!-- ==================== PARALLAX LAYER 1: FIXED HERO VIDEO ==================== -->
+  <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      class="w-full h-full object-cover scale-105 pointer-events-none select-none filter brightness-[0.82] contrast-[1.04]"
+    >
+      <source src="ab02.mp4" type="video/mp4" />
+    </video>
 
-  <!-- Cinematic Multi-Layer Dark Overlay -->
-  <!-- Layer 1: Directional deep gradient for text readability -->
-  <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/80 to-stone-950/40 z-10"></div>
-  
-  <!-- Layer 2: Subtle vignette and top/bottom blending -->
-  <div class="absolute inset-0 bg-radial-gradient from-transparent via-stone-950/50 to-stone-950/90 z-10 pointer-events-none"></div>
-
-  <!-- Content Layer -->
-  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-    
-    <!-- Eyebrow Badge (Frosted Glass Style) -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-900/80 backdrop-blur-md border border-stone-700/60 shadow-lg text-xs font-mono text-stone-200 mb-8 transition-transform hover:scale-105 duration-300">
-      <span class="w-2 h-2 rounded-full bg-coral-500 animate-ping"></span>
-      <span class="w-2 h-2 rounded-full bg-coral-500 -ml-4"></span>
-      <span class="font-medium text-stone-100">Dhaka, Bangladesh</span>
-      <span class="text-stone-500">/</span>
-      <span class="text-stone-400">Est. 2022</span>
-    </div>
-
-    <!-- Main Headline -->
-    <div class="max-w-5xl">
-      <h1 class="display-title font-sans text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.08] mb-8 drop-shadow-sm">
-        Engineering <em class="italic font-normal text-stone-300">tomorrow.</em><br>
-        Building what <span class="text-coral-500 font-serif italic font-normal">matters.</span>
-      </h1>
-      
-      <p class="font-body text-lg sm:text-2xl text-stone-300 font-inter max-w-3xl leading-relaxed mb-10 drop-shadow">
-        We engineer intelligent digital solutions by combining advanced software engineering, telemetry automation, 
-        and applied AI. With experience spanning industries from FinTech to AI-integrated digital healthcare, 
-        we transform complex challenges into scalable, resilient, and future-ready products.
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="flex flex-wrap items-center gap-4">
-        <a 
-          href="#work" 
-          class="px-6 py-3.5 bg-white hover:bg-stone-200 text-stone-950 font-semibold text-xs tracking-wider uppercase rounded-full transition-all shadow-md hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
-        >
-          <span>Explore our work</span>
-          <svg class="w-4 h-4 text-stone-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-          </svg>
-        </a>
-        
-        <a 
-          href="#contact" 
-          class="px-6 py-3.5 bg-stone-900/70 hover:bg-stone-800/90 text-white border border-stone-700/80 hover:border-stone-500 backdrop-blur-md font-medium text-xs tracking-wider uppercase rounded-full transition-all shadow-sm flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
-        >
-          <span>Let&rsquo;s talk</span>
-          <svg class="w-4 h-4 text-coral-500 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
-        </a>
-      </div>
-
-    </div>
+    <!-- Eye-Soothing Cinematic Multi-Layer Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/80 to-obsidian/45 z-10 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/60 z-10 pointer-events-none"></div>
+    <div class="absolute inset-0 arch-grid-dark z-10 pointer-events-none"></div>
   </div>
-</section>
 
-      <!-- Interactive Colorful Stats Bar -->
-      <div class="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Stat 1: Years (Coral) -->
-        <div class="studio-card p-6 rounded-2xl relative overflow-hidden group">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-coral-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-          <span class="font-mono text-xs text-ink-subtle block mb-1">01 / PRODUCTION</span>
-          <div class="text-3xl sm:text-4xl font-bold tracking-tight text-ink flex items-baseline gap-1">
-            <span>04</span>
-            <span class="text-coral-500 text-2xl font-serif italic">+</span>
-          </div>
-          <p class="text-sm font-semibold text-ink mt-1">Years in Operation</p>
-          <p class="text-xs text-ink-muted mt-0.5 font-body">Building in production since 2022.</p>
-        </div>
+  <!-- ==================== HERO CONTENT SECTION ==================== -->
+  <section class="relative z-10 min-h-[88vh] md:min-h-[92vh] flex items-center pt-16 pb-24 md:pt-24 md:pb-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      
+      <!-- Eyebrow Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.07] backdrop-blur-xl border border-white/15 shadow-lg text-xs font-mono text-stone-200 mb-8 transition-transform hover:scale-105 duration-300">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-coral-500"></span>
+        </span>
+        <span class="font-medium text-white tracking-wide">Dhaka, Bangladesh</span>
+        <span class="text-stone-500">/</span>
+        <span class="text-stone-300">Est. 2022</span>
+      </div>
 
-        <!-- Stat 2: Specialists (Indigo) -->
-        <div class="studio-card p-6 rounded-2xl relative overflow-hidden group">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-indigo-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-          <span class="font-mono text-xs text-ink-subtle block mb-1">02 / CORE TEAM</span>
-          <div class="text-3xl sm:text-4xl font-bold tracking-tight text-ink flex items-baseline gap-1">
-            <span>07</span>
-            <span class="text-indigo-500 text-sm font-mono uppercase ml-1">Specialists</span>
-          </div>
-          <p class="text-sm font-semibold text-ink mt-1">Engineering &amp; Design</p>
-          <p class="text-xs text-ink-muted mt-0.5 font-body">Close to schema, UX, and uptime.</p>
-        </div>
+      <!-- Main Editorial Headline -->
+      <div class="max-w-5xl">
+        <h1 class="display-title font-sans text-4xl sm:text-6xl lg:text-7xl xl:text-[5.4rem] font-bold text-white leading-[1.05] mb-8">
+          Engineering <em class="text-stone-200 font-normal">tomorrow.</em><br>
+          Building what <span class="text-coral-400 font-serif italic font-normal">matters.</span>
+        </h1>
+        
+        <p class="font-body text-base sm:text-xl lg:text-[1.35rem] text-stone-300/95 font-normal max-w-3xl leading-[1.65] mb-12">
+          We engineer intelligent digital solutions by combining advanced software engineering, telemetry automation, 
+          and applied AI. With experience spanning industries from FinTech to AI-integrated digital healthcare, 
+          we transform complex challenges into scalable, resilient, and future-ready products.
+        </p>
 
-        <!-- Stat 3: Fleet (Emerald) -->
-        <div class="studio-card p-6 rounded-2xl relative overflow-hidden group">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-          <span class="font-mono text-xs text-ink-subtle block mb-1">03 / SCALE</span>
-          <div class="text-3xl sm:text-4xl font-bold tracking-tight text-ink flex items-baseline gap-1">
-            <span>100K</span>
-            <span class="text-emerald-500 text-2xl font-serif italic">+</span>
-          </div>
-          <p class="text-sm font-semibold text-ink mt-1">Vehicles Supported</p>
-          <p class="text-xs text-ink-muted mt-0.5 font-body">Telemetry at national scale.</p>
-        </div>
-
-        <!-- Stat 4: Support (Marigold) -->
-        <div class="studio-card p-6 rounded-2xl relative overflow-hidden group">
-          <div class="absolute top-0 left-0 right-0 h-1 bg-marigold-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-          <span class="font-mono text-xs text-ink-subtle block mb-1">04 / RELIABILITY</span>
-          <div class="text-3xl sm:text-4xl font-bold tracking-tight text-ink flex items-baseline gap-1">
-            <span>24/7</span>
-            <span class="w-2 h-2 rounded-full bg-emerald-500 self-center ml-1"></span>
-          </div>
-          <p class="text-sm font-semibold text-ink mt-1">Monitoring &amp; Support</p>
-          <p class="text-xs text-ink-muted mt-0.5 font-body">End-to-end, not office hours.</p>
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a 
+            href="#work" 
+            class="group px-7 py-4 bg-white hover:bg-porcelain text-obsidian font-semibold text-xs tracking-wider uppercase rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2.5"
+          >
+            <span>Explore our work</span>
+            <svg class="w-4 h-4 text-obsidian transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+          </a>
+          
+          <a 
+            href="#contact" 
+            class="group px-7 py-4 bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/20 hover:border-white/40 backdrop-blur-xl font-medium text-xs tracking-wider uppercase rounded-full transition-all shadow-sm flex items-center gap-2.5 hover:-translate-y-0.5"
+          >
+            <span>Let&rsquo;s talk</span>
+            <svg class="w-4 h-4 text-coral-400 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
         </div>
       </div>
+
+      <!-- Subtle Bottom Hero Telemetry Strip -->
+      <div class="mt-20 pt-8 border-t border-white/10 hidden md:grid grid-cols-3 gap-8 max-w-4xl text-xs font-mono text-stone-400">
+        <div class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>NATIONAL TELEMETRY &bull; 100K+ ENDPOINTS</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-coral-400"></span>
+          <span>CONTINUOUS FINTECH VALIDATION</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+          <span>BANANI STUDIO &bull; GLOBAL DEPLOYMENTS</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ==================== PHILOSOPHY ==================== -->
-  <section id="philosophy" class="py-24 border-t border-stone-200/70 bg-porcelain">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
-        <div class="flex items-center gap-2 font-mono text-xs text-coral-600 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-coral-500"></span>
-          <span>02 / PHILOSOPHY</span>
+  <!-- ==================== PARALLAX LAYER 2: PHILOSOPHY & CAPABILITIES WINDOW ==================== -->
+  <section id="philosophy" class="relative z-10 overflow-hidden py-28 sm:py-36 shadow-[0_-25px_60px_rgba(0,0,0,0.6)] border-t border-white/15 bg-obsidian" style="clip-path: inset(0); -webkit-clip-path: inset(0);">
+    
+    <!-- Fixed Background Image (Stationary inside this clipped window) -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none select-none z-0">
+      <img
+        src="abp01.jpg"
+        alt="Anchorblock Studio Environment"
+        class="w-full h-full object-cover object-center scale-105 pointer-events-none select-none filter brightness-[0.65] contrast-[1.05]"
+      />
+      <!-- Eye-Soothing Dark Slate Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-b from-obsidian/90 via-obsidian/70 to-obsidian/95 z-10 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-obsidian/50 to-obsidian/95 z-10 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-tr from-coral-600/10 via-transparent to-indigo-600/15 z-10 pointer-events-none"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Interactive Luminous Stats Bar -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-24 sm:mb-32 reveal">
+        <!-- Stat 1: Years (Coral) -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 sm:p-7 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-coral-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+          <span class="mb-2 block font-mono text-[11px] font-semibold tracking-wider text-slate-400">01 / PRODUCTION</span>
+          <div class="flex items-baseline gap-1 font-bold tracking-tight text-ink text-4xl sm:text-5xl">
+            <span>04</span>
+            <span class="font-serif italic text-3xl text-coral-500">+</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-ink">Years in Operation</p>
+          <p class="mt-0.5 font-body text-xs text-ink-muted">Building in production since 2022.</p>
         </div>
-        <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight mb-4">
-          How we see the <em>future.</em>
+
+        <!-- Stat 2: Specialists (Indigo) -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 sm:p-7 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-indigo-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+          <span class="mb-2 block font-mono text-[11px] font-semibold tracking-wider text-slate-400">02 / CORE TEAM</span>
+          <div class="flex items-baseline gap-1.5 font-bold tracking-tight text-ink text-4xl sm:text-5xl">
+            <span>07</span>
+            <span class="font-mono text-xs font-semibold uppercase text-indigo-600 tracking-normal">Specialists</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-ink">Engineering &amp; Design</p>
+          <p class="mt-0.5 font-body text-xs text-ink-muted">Close to schema, UX, and uptime.</p>
+        </div>
+
+        <!-- Stat 3: Fleet (Emerald) -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 sm:p-7 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+          <span class="mb-2 block font-mono text-[11px] font-semibold tracking-wider text-slate-400">03 / SCALE</span>
+          <div class="flex items-baseline gap-1 font-bold tracking-tight text-ink text-4xl sm:text-5xl">
+            <span>100K</span>
+            <span class="font-serif italic text-3xl text-emerald-600">+</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-ink">Vehicles Supported</p>
+          <p class="mt-0.5 font-body text-xs text-ink-muted">Telemetry at national scale.</p>
+        </div>
+
+        <!-- Stat 4: Support (Marigold) -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 sm:p-7 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-marigold-500 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></div>
+          <span class="mb-2 block font-mono text-[11px] font-semibold tracking-wider text-slate-400">04 / RELIABILITY</span>
+          <div class="flex items-baseline gap-2 font-bold tracking-tight text-ink text-4xl sm:text-5xl">
+            <span>24/7</span>
+            <span class="self-center h-2.5 w-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-ink">Monitoring &amp; Support</p>
+          <p class="mt-0.5 font-body text-xs text-ink-muted">End-to-end, not office hours.</p>
+        </div>
+      </div>
+
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16 reveal">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-xl border border-coral-400/40 text-xs font-mono font-semibold tracking-wider text-white shadow-lg mb-5">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-coral-400"></span>
+          </span>
+          <span class="text-stone-100">02 / PHILOSOPHY</span>
+        </div>
+        <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-white mb-5">
+          How we see the <em class="text-stone-300">future.</em>
         </h2>
-        <p class="text-ink-muted font-body text-base leading-relaxed">
+        <p class="text-stone-300 font-body text-base sm:text-lg leading-relaxed">
           Four convictions shape every system we ship. We believe in software that holds up under pressure, respects its operators, and delivers measurable value.
         </p>
       </div>
 
-      <!-- 4 Convictions Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- 4 Convictions Grid (Obsidian Glass Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
         <!-- Principle 1 -->
-        <div class="studio-card p-8 rounded-3xl hover:border-coral-200 transition-colors">
+        <div class="glass-card-dark p-8 sm:p-10 rounded-3xl group">
           <div class="flex items-center justify-between mb-6">
-            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-coral-50 text-coral-600 border border-coral-200 font-semibold">01</span>
-            <span class="text-xs font-mono text-ink-subtle">PURPOSE</span>
+            <span class="font-mono text-xs px-3 py-1 rounded-full bg-coral-500/15 text-coral-400 border border-coral-500/30 font-semibold">01</span>
+            <span class="text-xs font-mono text-stone-400 tracking-widest">PURPOSE</span>
           </div>
-          <h3 class="text-xl font-bold text-ink mb-3">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-coral-400 transition-colors">
             Technology should solve real problems.
           </h3>
-          <p class="text-ink-muted font-body text-sm leading-relaxed">
+          <p class="text-stone-300/90 font-body text-sm sm:text-base leading-relaxed">
             Not demo problems. The kind that keep a team at their desks after hours, with real money, real people, and real consequences on the other side.
           </p>
         </div>
 
         <!-- Principle 2 -->
-        <div class="studio-card p-8 rounded-3xl hover:border-indigo-200 transition-colors">
+        <div class="glass-card-dark p-8 sm:p-10 rounded-3xl group">
           <div class="flex items-center justify-between mb-6">
-            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200 font-semibold">02</span>
-            <span class="text-xs font-mono text-ink-subtle">MEASUREMENT</span>
+            <span class="font-mono text-xs px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-400 border border-indigo-500/30 font-semibold">02</span>
+            <span class="text-xs font-mono text-stone-400 tracking-widest">MEASUREMENT</span>
           </div>
-          <h3 class="text-xl font-bold text-ink mb-3">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">
             Innovation must create measurable value.
           </h3>
-          <p class="text-ink-muted font-body text-sm leading-relaxed">
+          <p class="text-stone-300/90 font-body text-sm sm:text-base leading-relaxed">
             We measure our work in uptime, throughput, hours returned, and decisions made — not in architectural novelty.
           </p>
         </div>
 
         <!-- Principle 3 -->
-        <div class="studio-card p-8 rounded-3xl hover:border-emerald-200 transition-colors">
+        <div class="glass-card-dark p-8 sm:p-10 rounded-3xl group">
           <div class="flex items-center justify-between mb-6">
-            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 font-semibold">03</span>
-            <span class="text-xs font-mono text-ink-subtle">HUMAN FACTOR</span>
+            <span class="font-mono text-xs px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-semibold">03</span>
+            <span class="text-xs font-mono text-stone-400 tracking-widest">HUMAN FACTOR</span>
           </div>
-          <h3 class="text-xl font-bold text-ink mb-3">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
             Great products begin with understanding people.
           </h3>
-          <p class="text-ink-muted font-body text-sm leading-relaxed">
+          <p class="text-stone-300/90 font-body text-sm sm:text-base leading-relaxed">
             The field worker, the support agent, the finance lead. If the interface fails them under stress, the underlying architecture does not matter.
           </p>
         </div>
 
         <!-- Principle 4 -->
-        <div class="studio-card p-8 rounded-3xl hover:border-marigold-200 transition-colors">
+        <div class="glass-card-dark p-8 sm:p-10 rounded-3xl group">
           <div class="flex items-center justify-between mb-6">
-            <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-marigold-50 text-marigold-600 border border-marigold-200 font-semibold">04</span>
-            <span class="text-xs font-mono text-ink-subtle">LIFECYCLE</span>
+            <span class="font-mono text-xs px-3 py-1 rounded-full bg-marigold-500/15 text-marigold-400 border border-marigold-500/30 font-semibold">04</span>
+            <span class="text-xs font-mono text-stone-400 tracking-widest">LIFECYCLE</span>
           </div>
-          <h3 class="text-xl font-bold text-ink mb-3">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-marigold-400 transition-colors">
             The best systems are built to be lived with.
           </h3>
-          <p class="text-ink-muted font-body text-sm leading-relaxed">
+          <p class="text-stone-300/90 font-body text-sm sm:text-base leading-relaxed">
             Instrumented, documented, and actively supported long after launch. Software is an ongoing operational relationship, not an unmonitored handover.
           </p>
         </div>
@@ -494,772 +602,791 @@ html {
     </div>
   </section>
 
-  <!-- ==================== CLIENT MARQUEE ==================== -->
-  <section class="py-12 border-y border-stone-200/80 bg-white/70 backdrop-blur-sm overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
-      <p class="font-mono text-xs text-ink-subtle uppercase tracking-wider">Trusted by forward-thinking teams</p>
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="text-xs font-mono text-ink-muted">In production</span>
-      </div>
-    </div>
+  <!-- ==================== FOREGROUND PORCELAIN WRAPPER ==================== -->
+  <div class="relative z-10 bg-porcelain shadow-[0_-20px_50px_rgba(0,0,0,0.25)]">
 
-    <div class="marquee-wrap overflow-hidden py-3">
-      <div class="marquee-track flex items-center gap-12 font-display text-xl sm:text-2xl font-semibold text-ink-muted/80">
-        <span class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-coral-500"></span>
-          <strong class="text-ink font-bold">bKash</strong> Limited
-          <span class="text-xs font-mono text-ink-subtle font-normal ml-2">Fintech Automation</span>
-        </span>
-        <span class="text-stone-300">/</span>
-        <span class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <strong class="text-ink font-bold">Trukkr</strong>
-          <span class="text-xs font-mono text-ink-subtle font-normal ml-2">Fleet Intelligence</span>
-        </span>
-        <span class="text-stone-300">/</span>
-        <span class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-          <strong class="text-ink font-bold">Anchorbook</strong>
-          <span class="text-xs font-mono text-ink-subtle font-normal ml-2">Finance Platform</span>
-        </span>
-        <span class="text-stone-300">/</span>
-        <span class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-coral-500"></span>
-          <strong class="text-ink font-bold">bKash</strong> Limited
-          <span class="text-xs font-mono text-ink-subtle font-normal ml-2">Fintech Automation</span>
-        </span>
-        <span class="text-stone-300">/</span>
-        <span class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <strong class="text-ink font-bold">Trukkr</strong>
-          <span class="text-xs font-mono text-ink-subtle font-normal ml-2">Fleet Intelligence</span>
-        </span>
-        <span class="text-stone-300">/</span>
-        <span class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-          <strong class="text-ink font-bold">Anchorbook</strong>
-          <span class="text-xs font-mono text-ink-subtle font-normal ml-2">Finance Platform</span>
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SELECTED WORK ==================== -->
-  <section id="work" class="py-24 border-b border-stone-200/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
-        <div class="flex items-center gap-2 font-mono text-xs text-indigo-600 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-          <span>03 / SELECTED WORK</span>
-        </div>
-        <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight mb-4">
-          Selected work. <em>Real impact.</em>
-        </h2>
-        <p class="text-ink-muted font-body text-base leading-relaxed">
-          From national-scale fintech monitoring to fleet intelligence across 100,000 vehicles. Same disciplined approach each time: understand the load, design for it, prove it in production.
-        </p>
-      </div>
-
-      <!-- WORK ITEM 1: BKASH PATRON -->
-      <div class="studio-card rounded-3xl p-6 sm:p-10 mb-12 relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <!-- Text Meta -->
-          <div class="lg:col-span-5 space-y-4">
-            <div class="flex items-center gap-2 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded-full bg-coral-50 text-coral-600 font-semibold border border-coral-200">bKash Limited</span>
-              <span class="text-stone-300">•</span>
-              <span class="text-ink-subtle">Fintech Automation</span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
-              Patron
-            </h3>
-
-            <p class="text-ink-muted font-body text-sm leading-relaxed">
-              An end-to-end App and USSD automation platform with 24/7 monitoring for Bangladesh&rsquo;s leading financial services ecosystem. Validates transactions, SIM availability, and service availability continuously.
-            </p>
-
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">App &amp; USSD</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">InfluxDB</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">MinIO</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">24/7 Live Monitoring</span>
-            </div>
-          </div>
-
-          <!-- Interactive Telemetry Component -->
-          <div class="lg:col-span-7 bg-stone-50 border border-stone-200 rounded-2xl p-6 shadow-sm font-sans">
-            <!-- Telemetry Top Bar -->
-            <div class="flex items-center justify-between pb-4 border-b border-stone-200 mb-5">
-              <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span class="font-mono text-xs font-semibold text-ink">PATRON / MONITORING DASHBOARD</span>
-              </div>
-              <!-- Environment switcher -->
-              <div class="flex items-center gap-1 bg-white p-1 rounded-full border border-stone-200 text-xs font-mono">
-                <button id="env-prod-btn" class="px-3 py-1 rounded-full bg-ink text-white font-medium transition-all">PROD</button>
-                <button id="env-uat-btn" class="px-3 py-1 rounded-full text-ink-muted hover:text-ink transition-all">UAT</button>
-              </div>
-            </div>
-
-            <!-- Stats Row -->
-            <div class="grid grid-cols-3 gap-3 mb-5">
-              <div class="bg-white p-3 rounded-xl border border-stone-200">
-                <span class="text-[11px] font-mono text-ink-subtle block">SYSTEM UPTIME</span>
-                <span id="patron-uptime" class="text-lg font-bold text-emerald-600 font-mono">99.998%</span>
-              </div>
-              <div class="bg-white p-3 rounded-xl border border-stone-200">
-                <span class="text-[11px] font-mono text-ink-subtle block">VALIDATION CADENCE</span>
-                <span class="text-lg font-bold text-ink font-mono">4.2s Cont.</span>
-              </div>
-              <div class="bg-white p-3 rounded-xl border border-stone-200">
-                <span class="text-[11px] font-mono text-ink-subtle block">ACTIVE NODES</span>
-                <span class="text-lg font-bold text-indigo-600 font-mono">16 Cluster</span>
-              </div>
-            </div>
-
-            <!-- Sparkline Graph -->
-            <div class="bg-white p-4 rounded-xl border border-stone-200 mb-5">
-              <div class="flex items-center justify-between text-xs font-mono text-ink-subtle mb-2">
-                <span>SIMULATED LATENCY STREAM</span>
-                <span class="text-emerald-600 font-semibold">18ms AVG</span>
-              </div>
-              <svg class="w-full h-14" viewBox="0 0 320 60" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="coralSpark" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#FF5733" stop-opacity="0.18"/>
-                    <stop offset="100%" stop-color="#FF5733" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0,45 L20,38 L40,42 L60,30 L80,35 L100,24 L120,28 L140,16 L160,22 L180,14 L200,18 L220,12 L240,15 L260,8 L280,12 L300,7 L320,10 L320,60 L0,60 Z" fill="url(#coralSpark)"/>
-                <path d="M0,45 L20,38 L40,42 L60,30 L80,35 L100,24 L120,28 L140,16 L160,22 L180,14 L200,18 L220,12 L240,15 L260,8 L280,12 L300,7 L320,10" fill="none" stroke="#FF5733" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-
-            <!-- Checks Checklist -->
-            <div class="space-y-2 text-xs font-mono">
-              <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-stone-200">
-                <span class="flex items-center gap-2 text-ink">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> App &bull; Biometric Login
-                </span>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-semibold">PASS [200 OK]</span>
-              </div>
-              <div class="flex items-center justify-between p-2.5 bg-white rounded-lg border border-stone-200">
-                <span class="flex items-center gap-2 text-ink">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> USSD &bull; Send Money Protocol
-                </span>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-semibold">PASS [200 OK]</span>
-              </div>
-            </div>
-          </div>
+    <!-- ==================== CLIENT MARQUEE ==================== -->
+    <section class="py-10 border-b border-stone-200/80 bg-white/75 backdrop-blur-md overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
+        <p class="font-mono text-[11px] text-ink-subtle uppercase tracking-widest font-semibold">Trusted by forward-thinking teams</p>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs font-mono text-ink-muted">In active production</span>
         </div>
       </div>
 
-      <!-- WORK ITEM 2: TRUKKR -->
-      <div class="studio-card rounded-3xl p-6 sm:p-10 mb-12 relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <!-- Animated Map Component -->
-          <div class="lg:col-span-7 bg-stone-50 border border-stone-200 rounded-2xl p-6 shadow-sm order-2 lg:order-1 font-sans">
-            <div class="flex items-center justify-between pb-4 border-b border-stone-200 mb-4">
-              <span class="font-mono text-xs font-semibold text-ink flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                FLEET / GEOSPATIAL INTELLIGENCE
-              </span>
-              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-medium">100K+ Vehicles</span>
-            </div>
-
-            <!-- Stylized Minimal Map Canvas -->
-            <div class="relative w-full h-56 bg-white rounded-xl border border-stone-200 overflow-hidden flex items-center justify-center">
-              <svg class="w-full h-full" viewBox="0 0 440 220" preserveAspectRatio="none">
-                <!-- Soft Road Vectors -->
-                <path d="M-10,60 C90,70 140,30 220,50 S350,80 450,55" fill="none" stroke="#E5E7EB" stroke-width="2.5"/>
-                <path d="M-10,160 C80,140 140,190 230,170 S350,130 450,155" fill="none" stroke="#E5E7EB" stroke-width="2.5"/>
-                <path d="M70,-10 C80,60 50,120 85,200 S100,240 110,240" fill="none" stroke="#E5E7EB" stroke-width="2"/>
-                <path d="M340,-10 C320,70 370,140 350,210 S330,240 340,240" fill="none" stroke="#E5E7EB" stroke-width="2"/>
-
-                <!-- Active Logistics Route Curve -->
-                <path id="routeCurve" d="M30,180 C80,170 100,120 160,120 S240,65 300,75 S365,130 410,95" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
-
-                <!-- Animated Tracking Vehicle Pulse -->
-                <circle r="7" fill="#10B981" opacity="0.25">
-                  <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
-                    <mpath href="#routeCurve"/>
-                  </animateMotion>
-                </circle>
-                <circle r="4" fill="#059669">
-                  <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
-                    <mpath href="#routeCurve"/>
-                  </animateMotion>
-                </circle>
-              </svg>
-
-              <!-- Map Overlay Tag -->
-              <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-stone-200 text-xs font-mono text-ink shadow-sm flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Active Track: TRK-0284</span>
-              </div>
-            </div>
-
-            <!-- Telemetry Metrics -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-xs font-mono">
-              <div class="p-2.5 bg-white rounded-lg border border-stone-200">
-                <span class="text-ink-subtle text-[11px] block">INTERVAL</span>
-                <span class="font-bold text-ink">4s Stream</span>
-              </div>
-              <div class="p-2.5 bg-white rounded-lg border border-stone-200">
-                <span class="text-ink-subtle text-[11px] block">JITTER</span>
-                <span class="font-bold text-emerald-600">Kalman Filter</span>
-              </div>
-              <div class="p-2.5 bg-white rounded-lg border border-stone-200">
-                <span class="text-ink-subtle text-[11px] block">PREDICTION</span>
-                <span class="font-bold text-indigo-600">Off-path alert</span>
-              </div>
-              <div class="p-2.5 bg-white rounded-lg border border-stone-200">
-                <span class="text-ink-subtle text-[11px] block">THEFT</span>
-                <span class="font-bold text-coral-600">Autonomous</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Text Meta -->
-          <div class="lg:col-span-5 space-y-4 order-1 lg:order-2">
-            <div class="flex items-center gap-2 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 font-semibold border border-emerald-200">Trukkr</span>
-              <span class="text-stone-300">•</span>
-              <span class="text-ink-subtle">Logistics &amp; IoT</span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
-              Trukkr Fleet Platform
-            </h3>
-
-            <p class="text-ink-muted font-body text-sm leading-relaxed">
-              A high-concurrency GPS intelligence and IoT monitoring platform engineered to keep tracking continuous through signal loss, device jitter, and massive territorial scale across 100,000+ vehicles.
-            </p>
-
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Telemetry</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Geospatial</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Kalman Smoothing</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">Real-time Stream</span>
-            </div>
-          </div>
+      <div class="marquee-wrap overflow-hidden py-3">
+        <div class="marquee-track flex items-center gap-14 text-xl sm:text-2xl font-semibold text-ink-muted/80">
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-coral-500"></span>
+            <strong class="text-ink font-bold">bKash</strong> Limited
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-stone-100 text-ink-muted font-normal ml-1">Fintech Automation</span>
+          </span>
+          <span class="text-stone-300">/</span>
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <strong class="text-ink font-bold">Trukkr</strong>
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-stone-100 text-ink-muted font-normal ml-1">Fleet Intelligence</span>
+          </span>
+          <span class="text-stone-300">/</span>
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+            <strong class="text-ink font-bold">Anchorbook</strong>
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-stone-100 text-ink-muted font-normal ml-1">Finance Platform</span>
+          </span>
+          <span class="text-stone-300">/</span>
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-coral-500"></span>
+            <strong class="text-ink font-bold">bKash</strong> Limited
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-stone-100 text-ink-muted font-normal ml-1">Fintech Automation</span>
+          </span>
+          <span class="text-stone-300">/</span>
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <strong class="text-ink font-bold">Trukkr</strong>
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-stone-100 text-ink-muted font-normal ml-1">Fleet Intelligence</span>
+          </span>
+          <span class="text-stone-300">/</span>
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+            <strong class="text-ink font-bold">Anchorbook</strong>
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-stone-100 text-ink-muted font-normal ml-1">Finance Platform</span>
+          </span>
         </div>
       </div>
+    </section>
 
-      <!-- WORK ITEM 3: ANCHORBOOK -->
-      <div class="studio-card rounded-3xl p-6 sm:p-10 relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div class="lg:col-span-5 space-y-4">
-            <div class="flex items-center gap-2 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 font-semibold border border-indigo-200">Anchorblock LLC</span>
-              <span class="text-stone-300">•</span>
-              <span class="text-ink-subtle">Internal Platform</span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">
-              Anchorbook
-            </h3>
-
-            <p class="text-ink-muted font-body text-sm leading-relaxed">
-              FinTech, applied AI, and business automation — an integrated operations platform linking bank e-portals, challan parsing, automated vendor reconciliations, and payroll APIs.
-            </p>
-
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Finance Ops</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Applied LLMs</span>
-              <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 font-medium border border-indigo-200">Automated Reconciliation</span>
-            </div>
+    <!-- ==================== SELECTED WORK ==================== -->
+    <section id="work" class="py-24 sm:py-32 border-b border-stone-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16 reveal">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-600 font-semibold mb-3">
+            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+            <span>03 / SELECTED WORK</span>
           </div>
-
-          <!-- Flow Node Graph Component -->
-          <div class="lg:col-span-7 bg-stone-50 border border-stone-200 rounded-2xl p-6 shadow-sm font-sans space-y-3">
-            <div class="flex items-center justify-between pb-3 border-b border-stone-200 text-xs font-mono">
-              <span class="font-semibold text-ink">REASONING LAYER &bull; PIPELINE GRAPH</span>
-              <span class="text-indigo-600 font-medium">LLM INGESTION ACTIVE</span>
-            </div>
-
-            <!-- Node Row 1 -->
-            <div class="p-3 bg-white rounded-xl border border-stone-200 flex items-center justify-between flex-wrap gap-2 text-xs font-mono">
-              <span class="text-ink font-medium">Tax Exemption</span>
-              <div class="flex items-center gap-2 text-ink-muted text-[11px]">
-                <span class="px-2 py-0.5 rounded bg-stone-100 text-ink">Bank e-Portal</span>
-                <span class="text-coral-500">&rarr;</span>
-                <span class="px-2 py-0.5 rounded bg-stone-100 text-ink">Statement Sync</span>
-                <span class="text-coral-500">&rarr;</span>
-                <span class="px-2 py-0.5 rounded bg-coral-50 text-coral-600 border border-coral-200 font-semibold">Vendor Email</span>
-              </div>
-            </div>
-
-            <!-- Node Row 2 -->
-            <div class="p-3 bg-white rounded-xl border border-stone-200 flex items-center justify-between flex-wrap gap-2 text-xs font-mono">
-              <span class="text-ink font-medium">Payroll Automation</span>
-              <div class="flex items-center gap-2 text-ink-muted text-[11px]">
-                <span class="px-2 py-0.5 rounded bg-stone-100 text-ink">Employee Records</span>
-                <span class="text-emerald-500">&rarr;</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 border border-emerald-200 font-semibold">Bank APIs Batch</span>
-              </div>
-            </div>
-
-            <!-- Node Row 3: LLM Layer -->
-            <div class="p-4 bg-gradient-to-r from-indigo-50/80 via-white to-stone-50 rounded-xl border border-indigo-200 flex items-center justify-between">
-              <div>
-                <div class="flex items-center gap-2 text-xs font-mono font-bold text-indigo-900">
-                  <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-                  LLM Document Verification Daemon
-                </div>
-                <p class="text-xs text-ink-muted font-body mt-0.5">Automated invoice categorization and TDS audit validations.</p>
-              </div>
-              <span class="text-[10px] font-mono px-2 py-1 rounded bg-indigo-600 text-white font-semibold">ONLINE</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 7 CAPABILITIES MATRIX ==================== -->
-  <section id="capabilities" class="py-24 border-b border-stone-200/70 bg-porcelain">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
-        <div class="flex items-center gap-2 font-mono text-xs text-emerald-600 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          <span>04 / CAPABILITIES</span>
-        </div>
-        <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight mb-4">
-          From complex challenges <br>to <em>real solutions.</em>
-        </h2>
-        <p class="text-ink-muted font-body text-base leading-relaxed">
-          Seven capabilities, one operating standard: understand the real load before designing for it. Click or hover any discipline to view technical details and schematics.
-        </p>
-      </div>
-
-      <!-- Split Layout: List on Left, Interactive Schematic Showcase on Right -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <!-- Interactive Capabilities List (Left) -->
-        <div class="lg:col-span-6 space-y-3" id="capabilities-list">
-          <!-- Item 1: Software Development -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-indigo-500" data-cap="software">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-indigo-600">01 / SOFTWARE DEVELOPMENT</span>
-              <span class="text-[11px] font-mono text-ink-subtle">FULL-STACK &bull; APIS</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">Web platforms, backend systems, and high-concurrency databases.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">High-throughput microservices, fault-tolerant relational schemas, and APIs.</p>
-          </div>
-
-          <!-- Item 2: AI & ML -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-iris-500" data-cap="aiml">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-iris-600">02 / AI &amp; MACHINE LEARNING</span>
-              <span class="text-[11px] font-mono text-ink-subtle">APPLIED ML &bull; LLMS</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">Models that change a decision, not notebooks trapped in a lab.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">Document reasoning engines, predictive logistics, and natural language tooling.</p>
-          </div>
-
-          <!-- Item 3: Fintech -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-coral-500" data-cap="fintech">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-coral-600">03 / FINTECH SOLUTIONS</span>
-              <span class="text-[11px] font-mono text-ink-subtle">TRANSACTIONS &bull; AUDIT</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">Transaction systems where correctness is the product.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">Ledger accounting, USSD &amp; mobile money channels, payment reconciliations.</p>
-          </div>
-
-          <!-- Item 4: IoT Engineering -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-emerald-500" data-cap="iot">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-emerald-600">04 / IOT ENGINEERING</span>
-              <span class="text-[11px] font-mono text-ink-subtle">TELEMETRY &bull; GEOSPATIAL</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">From hardware device signal to an interface people can trust.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">Real-time GPS streams, sensor filtering, and high-concurrency ingestion.</p>
-          </div>
-
-          <!-- Item 5: Automation -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-marigold-500" data-cap="automation">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-marigold-600">05 / AUTOMATION ENGINEERING</span>
-              <span class="text-[11px] font-mono text-ink-subtle">WORKFLOWS &bull; OPERATIONS</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">Remove repetitive human work — and keep it observable.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">Synthetic user testing suites, automated finance runs, event-driven pipelines.</p>
-          </div>
-
-          <!-- Item 6: Mobile -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-azure-500" data-cap="mobile">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-azure-600">06 / MOBILE APPLICATIONS</span>
-              <span class="text-[11px] font-mono text-ink-subtle">ANDROID &bull; IOS &bull; FIELD</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">Mobile experiences built for real networks and real hands.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">Offline-first local databases, field staff UX, and low-bandwidth resilience.</p>
-          </div>
-
-          <!-- Item 7: Healthcare -->
-          <div class="cap-card studio-card p-5 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-emerald-500" data-cap="healthcare">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs font-semibold text-emerald-600">07 / HEALTHCARE TECHNOLOGY</span>
-              <span class="text-[11px] font-mono text-ink-subtle">DIGITAL HEALTH &bull; PRIVACY</span>
-            </div>
-            <h3 class="text-base font-bold text-ink">Digital health software and data systems, engineered with care.</h3>
-            <p class="text-xs font-body text-ink-muted mt-1">Clinical telemetry, HIPAA-informed patterns, and appointment platforms.</p>
-          </div>
-        </div>
-
-        <!-- Dynamic Schematic & Brief Showcase (Right) -->
-        <div class="lg:col-span-6 sticky top-28">
-          <div class="studio-card p-8 rounded-3xl bg-white relative">
-            <div class="flex items-center justify-between pb-4 border-b border-stone-200">
-              <span id="showcase-badge" class="font-mono text-xs font-semibold text-indigo-600">CAPABILITY FOCUS: 01 / 07</span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-            </div>
-
-            <!-- Graphic Schematic Box -->
-            <div id="showcase-visual" class="w-full aspect-[4/3] bg-stone-50 rounded-2xl my-6 border border-stone-200 flex items-center justify-center p-8 transition-all">
-              <!-- Default Vector Graphic: Software Layers -->
-              <svg class="w-48 h-48 text-indigo-600" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="30" y="40" width="140" height="32" rx="6" fill="#EEF2FF" stroke="#4F46E5"/>
-                <rect x="30" y="84" width="140" height="32" rx="6" fill="#FFFFFF" stroke="#4F46E5"/>
-                <rect x="30" y="128" width="140" height="32" rx="6" fill="#FAF9F5" stroke="#4F46E5"/>
-                <circle cx="50" cy="56" r="4" fill="#4F46E5"/>
-                <circle cx="50" cy="100" r="4" fill="#10B981"/>
-                <circle cx="50" cy="144" r="4" fill="#FF5733"/>
-                <path d="M100 72v12M100 116v12" stroke="#4F46E5" stroke-dasharray="3 3"/>
-              </svg>
-            </div>
-
-            <!-- Text Brief -->
-            <h4 id="showcase-title" class="text-xl font-bold text-ink mb-2">Software &amp; Web Platform Engineering</h4>
-            <p id="showcase-desc" class="text-sm font-body text-ink-muted leading-relaxed mb-6">
-              Full-stack application development prioritizing latency reduction, relational database integrity, and high-concurrency microservices that run flawlessly in production.
-            </p>
-
-            <!-- Details Tags -->
-            <div id="showcase-tags" class="flex flex-wrap gap-2 pt-4 border-t border-stone-200 text-xs font-mono">
-              <span class="px-2.5 py-1 rounded-full bg-stone-100 text-ink-muted">Go / Python / Node</span>
-              <span class="px-2.5 py-1 rounded-full bg-stone-100 text-ink-muted">PostgreSQL</span>
-              <span class="px-2.5 py-1 rounded-full bg-stone-100 text-ink-muted">Docker &amp; K8s</span>
-              <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200">High Uptime</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== INDUSTRIES & DOMAINS ==================== -->
-  <section id="industries" class="py-24 border-b border-stone-200/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mb-16">
-        <div class="flex items-center gap-2 font-mono text-xs text-marigold-600 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-marigold-500"></span>
-          <span>05 / SECTORS &amp; DOMAINS</span>
-        </div>
-        <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight mb-4">
-          Engineering across <em>industries.</em>
-        </h2>
-        <p class="text-ink-muted font-body text-base leading-relaxed">
-          We categorize our engagements into industry verticals and core technology disciplines, bringing cross-domain insights to every product.
-        </p>
-      </div>
-
-      <!-- Grid of Industries -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- 1. Fintech -->
-        <div class="studio-card p-6 rounded-3xl hover:border-coral-200 transition-colors">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-coral-50 text-coral-600 border border-coral-200 font-semibold">Vertical</span>
-            <span class="font-mono text-xs text-ink-subtle">01</span>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Fintech &amp; Banking</h3>
-          <p class="text-xs font-body text-ink-muted leading-relaxed">
-            Reliable digital financial workflows, payment gateways, USSD transactions, and ledger balance verification engines.
-          </p>
-        </div>
-
-        <!-- 2. IoT -->
-        <div class="studio-card p-6 rounded-3xl hover:border-emerald-200 transition-colors">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 font-semibold">Vertical</span>
-            <span class="font-mono text-xs text-ink-subtle">02</span>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Internet of Things</h3>
-          <p class="text-xs font-body text-ink-muted leading-relaxed">
-            Hardware signal ingest, edge jitter filtering, real-time vehicle fleets, and high-volume geospatial analytics.
-          </p>
-        </div>
-
-        <!-- 3. Healthcare -->
-        <div class="studio-card p-6 rounded-3xl hover:border-azure-200 transition-colors">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-azure-50 text-azure-600 border border-azure-200 font-semibold">Vertical</span>
-            <span class="font-mono text-xs text-ink-subtle">03</span>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Digital Healthcare</h3>
-          <p class="text-xs font-body text-ink-muted leading-relaxed">
-            Clinical workflows, patient data privacy systems, appointment automation, and reliable medical software infrastructure.
-          </p>
-        </div>
-
-        <!-- 4. Automation -->
-        <div class="studio-card p-6 rounded-3xl hover:border-marigold-200 transition-colors">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-marigold-50 text-marigold-600 border border-marigold-200 font-semibold">Domain</span>
-            <span class="font-mono text-xs text-ink-subtle">04</span>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Operational Automation</h3>
-          <p class="text-xs font-body text-ink-muted leading-relaxed">
-            Eliminating repetitive back-office toil with observable daemons, scheduled pipelines, and synthetic verification tests.
-          </p>
-        </div>
-
-        <!-- 5. AI/ML -->
-        <div class="studio-card p-6 rounded-3xl hover:border-iris-200 transition-colors">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-iris-50 text-iris-600 border border-iris-200 font-semibold">Domain</span>
-            <span class="font-mono text-xs text-ink-subtle">05</span>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Applied AI &amp; Intelligence</h3>
-          <p class="text-xs font-body text-ink-muted leading-relaxed">
-            Language model integrations, anomaly detection in time-series telemetry, and intelligent decision augmentation.
-          </p>
-        </div>
-
-        <!-- 6. Mobile & Platforms -->
-        <div class="studio-card p-6 rounded-3xl hover:border-indigo-200 transition-colors">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200 font-semibold">Domain</span>
-            <span class="font-mono text-xs text-ink-subtle">06</span>
-          </div>
-          <h3 class="text-lg font-bold text-ink mb-2">Mobile &amp; Digital Platforms</h3>
-          <p class="text-xs font-body text-ink-muted leading-relaxed">
-            Scalable web architectures, native field-first mobile software, and secure API gateways built to last.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== BANANI STUDIO HUB & REACH ==================== -->
-  <section id="studio" class="py-24 border-b border-stone-200/70 bg-porcelain">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Studio Address & Credentials (Left) -->
-        <div class="lg:col-span-6 space-y-6">
-          <div class="flex items-center gap-2 font-mono text-xs text-coral-600">
-            <span class="w-1.5 h-1.5 rounded-full bg-coral-500"></span>
-            <span>06 / STUDIO LOCATION</span>
-          </div>
-          <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight">
-            One studio. <br><em>Wide reach.</em>
+          <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink mb-4">
+            Selected work. <em>Real impact.</em>
           </h2>
-          <p class="text-ink-muted font-body text-base leading-relaxed">
-            Our registered engineering studio is headquartered in Banani, Dhaka. From here, we work with clients and deploy systems in Bangladesh, Pakistan, and the United States — in live production, not just in workshops.
+          <p class="text-ink-muted font-body text-base sm:text-lg leading-relaxed">
+            From national-scale fintech monitoring to fleet intelligence across 100,000 vehicles. Same disciplined approach each time: understand the load, design for it, prove it in production.
           </p>
+        </div>
 
-          <!-- Studio Card -->
-          <div class="studio-card p-6 rounded-3xl space-y-4">
-            <div>
-              <span class="font-mono text-xs text-ink-subtle block mb-1">REGISTERED OFFICE</span>
-              <address class="not-italic font-medium text-ink text-sm sm:text-base leading-relaxed">
-                House 57, Road 4, Block C<br>
-                Banani, Dhaka-1212<br>
-                Bangladesh
-              </address>
+        <!-- WORK ITEM 1: BKASH PATRON -->
+        <div class="studio-card rounded-[2rem] p-6 sm:p-10 lg:p-12 mb-12 relative overflow-hidden reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Text Meta -->
+            <div class="lg:col-span-5 space-y-5">
+              <div class="flex items-center gap-2 text-xs font-mono">
+                <span class="px-3 py-1 rounded-full bg-coral-50 text-coral-600 font-semibold border border-coral-200">bKash Limited</span>
+                <span class="text-stone-300">•</span>
+                <span class="text-ink-subtle">Fintech Automation</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-4xl font-bold text-ink tracking-tight">
+                Patron
+              </h3>
+
+              <p class="text-ink-muted font-body text-sm sm:text-base leading-relaxed">
+                An end-to-end App and USSD automation platform with 24/7 monitoring for Bangladesh&rsquo;s leading financial services ecosystem. Validates transactions, SIM availability, and service availability continuously.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">App &amp; USSD</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">InfluxDB</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">MinIO</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">24/7 Live Monitoring</span>
+              </div>
             </div>
 
-            <div class="pt-3 border-t border-stone-200 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-              <span class="text-ink-muted">Registration C-182691</span>
-              <button onclick="copyToClipboard('+8801757049684', 'Phone number copied!')" class="text-coral-600 hover:text-coral-700 font-semibold flex items-center gap-1.5">
-                <span>+880 1757 049 684</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <!-- Interactive Telemetry Component -->
+            <div class="lg:col-span-7 bg-porcelain dot-matrix-light border border-stone-200/90 rounded-2xl p-6 sm:p-7 shadow-inner font-sans">
+              <!-- Telemetry Top Bar -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-stone-200/80 mb-5">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="font-mono text-xs font-bold text-ink tracking-wide">PATRON / MONITORING DASHBOARD</span>
+                </div>
+                <!-- Environment switcher -->
+                <div class="flex items-center gap-1 bg-white p-1 rounded-full border border-stone-200 text-xs font-mono shadow-sm">
+                  <button id="env-prod-btn" class="px-3.5 py-1 rounded-full bg-ink text-white font-medium transition-all">PROD</button>
+                  <button id="env-uat-btn" class="px-3.5 py-1 rounded-full text-ink-muted hover:text-ink transition-all">UAT</button>
+                </div>
+              </div>
+
+              <!-- Stats Row -->
+              <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-5">
+                <div class="bg-white/95 p-3.5 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-[10px] font-mono text-ink-subtle block uppercase tracking-wider">SYSTEM UPTIME</span>
+                  <span id="patron-uptime" class="text-lg sm:text-xl font-bold text-emerald-600 font-mono mt-0.5 block">99.998%</span>
+                </div>
+                <div class="bg-white/95 p-3.5 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-[10px] font-mono text-ink-subtle block uppercase tracking-wider">VALIDATION CADENCE</span>
+                  <span id="patron-cadence" class="text-lg sm:text-xl font-bold text-ink font-mono mt-0.5 block">4.2s Cont.</span>
+                </div>
+                <div class="bg-white/95 p-3.5 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-[10px] font-mono text-ink-subtle block uppercase tracking-wider">ACTIVE NODES</span>
+                  <span id="patron-nodes" class="text-lg sm:text-xl font-bold text-indigo-600 font-mono mt-0.5 block">16 Cluster</span>
+                </div>
+              </div>
+
+              <!-- Sparkline Graph -->
+              <div class="bg-white/95 p-4 rounded-xl border border-stone-200/80 shadow-sm mb-5">
+                <div class="flex items-center justify-between text-xs font-mono text-ink-subtle mb-2">
+                  <span>SIMULATED LATENCY STREAM</span>
+                  <span id="patron-latency" class="text-emerald-600 font-semibold">18ms AVG</span>
+                </div>
+                <svg class="w-full h-16" viewBox="0 0 320 60" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="coralSpark" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#F25533" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#F25533" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,45 C15,40 25,38 40,42 C55,46 65,28 80,32 C95,36 105,20 120,25 C135,30 145,14 160,19 C175,24 185,12 200,16 C215,20 225,10 240,14 C255,18 265,6 280,11 C295,16 305,6 320,9 L320,60 L0,60 Z" fill="url(#coralSpark)"/>
+                  <path d="M0,45 C15,40 25,38 40,42 C55,46 65,28 80,32 C95,36 105,20 120,25 C135,30 145,14 160,19 C175,24 185,12 200,16 C215,20 225,10 240,14 C255,18 265,6 280,11 C295,16 305,6 320,9" fill="none" stroke="#F25533" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="318" cy="9" r="3.5" fill="#F25533" class="animate-ping"/>
+                  <circle cx="318" cy="9" r="3" fill="#F25533"/>
+                </svg>
+              </div>
+
+              <!-- Checks Checklist -->
+              <div class="space-y-2.5 text-xs font-mono">
+                <div class="flex items-center justify-between p-3 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="flex items-center gap-2.5 text-ink font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> App &bull; Biometric Login
+                  </span>
+                  <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">PASS [200 OK]</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="flex items-center gap-2.5 text-ink font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> USSD &bull; Send Money Protocol
+                  </span>
+                  <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">PASS [200 OK]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORK ITEM 2: TRUKKR -->
+        <div class="studio-card rounded-[2rem] p-6 sm:p-10 lg:p-12 mb-12 relative overflow-hidden reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Animated Map Component -->
+            <div class="lg:col-span-7 bg-porcelain dot-matrix-light border border-stone-200/90 rounded-2xl p-6 sm:p-7 shadow-inner order-2 lg:order-1 font-sans">
+              <div class="flex items-center justify-between pb-4 border-b border-stone-200/80 mb-4">
+                <span class="font-mono text-xs font-bold text-ink flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  FLEET / GEOSPATIAL INTELLIGENCE
+                </span>
+                <span class="text-xs font-mono px-3 py-0.5 rounded-full bg-emerald-100/80 text-emerald-800 border border-emerald-200 font-semibold">100K+ Vehicles</span>
+              </div>
+
+              <!-- Stylized Minimal Map Canvas -->
+              <div class="relative w-full h-60 bg-white rounded-xl border border-stone-200/90 overflow-hidden flex items-center justify-center shadow-sm">
+                <svg class="w-full h-full" viewBox="0 0 440 220" preserveAspectRatio="none">
+                  <!-- Coordinate Grid Lines -->
+                  <line x1="110" y1="0" x2="110" y2="220" stroke="#F1F5F9" stroke-width="1"/>
+                  <line x1="220" y1="0" x2="220" y2="220" stroke="#F1F5F9" stroke-width="1"/>
+                  <line x1="330" y1="0" x2="330" y2="220" stroke="#F1F5F9" stroke-width="1"/>
+                  <line x1="0" y1="73" x2="440" y2="73" stroke="#F1F5F9" stroke-width="1"/>
+                  <line x1="0" y1="146" x2="440" y2="146" stroke="#F1F5F9" stroke-width="1"/>
+
+                  <!-- Soft Road Vectors -->
+                  <path d="M-10,60 C90,70 140,30 220,50 S350,80 450,55" fill="none" stroke="#E2E8F0" stroke-width="2.5"/>
+                  <path d="M-10,160 C80,140 140,190 230,170 S350,130 450,155" fill="none" stroke="#E2E8F0" stroke-width="2.5"/>
+                  <path d="M70,-10 C80,60 50,120 85,200 S100,240 110,240" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+                  <path d="M340,-10 C320,70 370,140 350,210 S330,240 340,240" fill="none" stroke="#E2E8F0" stroke-width="2"/>
+
+                  <!-- Active Logistics Route Curve Glow -->
+                  <path d="M30,180 C80,170 100,120 160,120 S240,65 300,75 S365,130 410,95" fill="none" stroke="#10B981" stroke-width="8" stroke-linecap="round" opacity="0.15"/>
+                  <!-- Active Logistics Route Curve -->
+                  <path id="routeCurve" d="M30,180 C80,170 100,120 160,120 S240,65 300,75 S365,130 410,95" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+
+                  <!-- Animated Tracking Vehicle Pulse -->
+                  <circle r="10" fill="#10B981" opacity="0.25">
+                    <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
+                      <mpath href="#routeCurve"/>
+                    </animateMotion>
+                  </circle>
+                  <circle r="4.5" fill="#059669" stroke="#FFFFFF" stroke-width="1.5">
+                    <animateMotion dur="12s" repeatCount="indefinite" rotate="auto">
+                      <mpath href="#routeCurve"/>
+                    </animateMotion>
+                  </circle>
+                </svg>
+
+                <!-- Map Overlay Tag -->
+                <div class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-stone-200 text-xs font-mono text-ink shadow-sm flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="font-medium">Active Track: TRK-0284</span>
+                </div>
+              </div>
+
+              <!-- Telemetry Metrics -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4 text-xs font-mono">
+                <div class="p-3 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-ink-subtle text-[10px] block uppercase">INTERVAL</span>
+                  <span class="font-bold text-ink mt-0.5 block">4s Stream</span>
+                </div>
+                <div class="p-3 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-ink-subtle text-[10px] block uppercase">JITTER</span>
+                  <span class="font-bold text-emerald-600 mt-0.5 block">Kalman Filter</span>
+                </div>
+                <div class="p-3 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-ink-subtle text-[10px] block uppercase">PREDICTION</span>
+                  <span class="font-bold text-indigo-600 mt-0.5 block">Off-path alert</span>
+                </div>
+                <div class="p-3 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm">
+                  <span class="text-ink-subtle text-[10px] block uppercase">THEFT</span>
+                  <span class="font-bold text-coral-600 mt-0.5 block">Autonomous</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text Meta -->
+            <div class="lg:col-span-5 space-y-5 order-1 lg:order-2">
+              <div class="flex items-center gap-2 text-xs font-mono">
+                <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 font-semibold border border-emerald-200">Trukkr</span>
+                <span class="text-stone-300">•</span>
+                <span class="text-ink-subtle">Logistics &amp; IoT</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-4xl font-bold text-ink tracking-tight">
+                Trukkr Fleet Platform
+              </h3>
+
+              <p class="text-ink-muted font-body text-sm sm:text-base leading-relaxed">
+                A high-concurrency GPS intelligence and IoT monitoring platform engineered to keep tracking continuous through signal loss, device jitter, and massive territorial scale across 100,000+ vehicles.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Telemetry</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Geospatial</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Kalman Smoothing</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">Real-time Stream</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WORK ITEM 3: ANCHORBOOK -->
+        <div class="studio-card rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-5 space-y-5">
+              <div class="flex items-center gap-2 text-xs font-mono">
+                <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 font-semibold border border-indigo-200">Anchorblock LLC</span>
+                <span class="text-stone-300">•</span>
+                <span class="text-ink-subtle">Internal Platform</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-4xl font-bold text-ink tracking-tight">
+                Anchorbook
+              </h3>
+
+              <p class="text-ink-muted font-body text-sm sm:text-base leading-relaxed">
+                FinTech, applied AI, and business automation — an integrated operations platform linking bank e-portals, challan parsing, automated vendor reconciliations, and payroll APIs.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Finance Ops</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Applied LLMs</span>
+                <span class="text-xs font-mono px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-medium border border-indigo-200">Automated Reconciliation</span>
+              </div>
+            </div>
+
+            <!-- Flow Node Graph Component -->
+            <div class="lg:col-span-7 bg-porcelain dot-matrix-light border border-stone-200/90 rounded-2xl p-6 sm:p-7 shadow-inner font-sans space-y-3.5">
+              <div class="flex items-center justify-between pb-3.5 border-b border-stone-200/80 text-xs font-mono">
+                <span class="font-bold text-ink">REASONING LAYER &bull; PIPELINE GRAPH</span>
+                <span class="text-indigo-600 font-semibold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+                  LLM INGESTION ACTIVE
+                </span>
+              </div>
+
+              <!-- Node Row 1 -->
+              <div class="p-3.5 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm flex items-center justify-between flex-wrap gap-2 text-xs font-mono">
+                <span class="text-ink font-semibold">Tax Exemption</span>
+                <div class="flex items-center gap-2 text-ink-muted text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-porcelain-alt text-ink">Bank e-Portal</span>
+                  <span class="text-coral-500 font-bold">&rarr;</span>
+                  <span class="px-2.5 py-1 rounded-md bg-porcelain-alt text-ink">Statement Sync</span>
+                  <span class="text-coral-500 font-bold">&rarr;</span>
+                  <span class="px-2.5 py-1 rounded-md bg-coral-50 text-coral-600 border border-coral-200 font-semibold">Vendor Email</span>
+                </div>
+              </div>
+
+              <!-- Node Row 2 -->
+              <div class="p-3.5 bg-white/95 rounded-xl border border-stone-200/80 shadow-sm flex items-center justify-between flex-wrap gap-2 text-xs font-mono">
+                <span class="text-ink font-semibold">Payroll Automation</span>
+                <div class="flex items-center gap-2 text-ink-muted text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-porcelain-alt text-ink">Employee Records</span>
+                  <span class="text-emerald-500 font-bold">&rarr;</span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">Bank APIs Batch</span>
+                </div>
+              </div>
+
+              <!-- Node Row 3: LLM Layer -->
+              <div class="p-4 bg-gradient-to-r from-indigo-50/90 via-white to-porcelain rounded-xl border border-indigo-200/90 shadow-sm flex items-center justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2 text-xs font-mono font-bold text-indigo-950">
+                    <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                    LLM Document Verification Daemon
+                  </div>
+                  <p class="text-xs text-ink-muted font-body mt-1">Automated invoice categorization and TDS audit validations.</p>
+                </div>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-md bg-indigo-600 text-white font-semibold tracking-wider shrink-0">ONLINE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7 CAPABILITIES MATRIX ==================== -->
+    <section id="capabilities" class="py-24 sm:py-32 border-b border-stone-200/70 bg-porcelain">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16 reveal">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 font-semibold mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>04 / CAPABILITIES</span>
+          </div>
+          <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink mb-4">
+            From complex challenges <br>to <em>real solutions.</em>
+          </h2>
+          <p class="text-ink-muted font-body text-base sm:text-lg leading-relaxed">
+            Seven capabilities, one operating standard: understand the real load before designing for it. Click or hover any discipline to view technical details and schematics.
+          </p>
+        </div>
+
+        <!-- Split Layout: List on Left, Interactive Schematic Showcase on Right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start reveal">
+          <!-- Interactive Capabilities List (Left) -->
+          <div class="lg:col-span-6 space-y-3" id="capabilities-list">
+            <!-- Item 1: Software Development -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-indigo-500" data-cap="software">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-indigo-600">01 / SOFTWARE DEVELOPMENT</span>
+                <span class="text-[11px] font-mono text-ink-subtle">FULL-STACK &bull; APIS</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">Web platforms, backend systems, and high-concurrency databases.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">High-throughput microservices, fault-tolerant relational schemas, and APIs.</p>
+            </div>
+
+            <!-- Item 2: AI & ML -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-iris-500" data-cap="aiml">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-iris-600">02 / AI &amp; MACHINE LEARNING</span>
+                <span class="text-[11px] font-mono text-ink-subtle">APPLIED ML &bull; LLMS</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">Models that change a decision, not notebooks trapped in a lab.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">Document reasoning engines, predictive logistics, and natural language tooling.</p>
+            </div>
+
+            <!-- Item 3: Fintech -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-coral-500" data-cap="fintech">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-coral-600">03 / FINTECH SOLUTIONS</span>
+                <span class="text-[11px] font-mono text-ink-subtle">TRANSACTIONS &bull; AUDIT</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">Transaction systems where correctness is the product.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">Ledger accounting, USSD &amp; mobile money channels, payment reconciliations.</p>
+            </div>
+
+            <!-- Item 4: IoT Engineering -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-emerald-500" data-cap="iot">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-emerald-600">04 / IOT ENGINEERING</span>
+                <span class="text-[11px] font-mono text-ink-subtle">TELEMETRY &bull; GEOSPATIAL</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">From hardware device signal to an interface people can trust.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">Real-time GPS streams, sensor filtering, and high-concurrency ingestion.</p>
+            </div>
+
+            <!-- Item 5: Automation -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-marigold-500" data-cap="automation">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-marigold-600">05 / AUTOMATION ENGINEERING</span>
+                <span class="text-[11px] font-mono text-ink-subtle">WORKFLOWS &bull; OPERATIONS</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">Remove repetitive human work — and keep it observable.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">Synthetic user testing suites, automated finance runs, event-driven pipelines.</p>
+            </div>
+
+            <!-- Item 6: Mobile -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-azure-500" data-cap="mobile">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-azure-600">06 / MOBILE APPLICATIONS</span>
+                <span class="text-[11px] font-mono text-ink-subtle">ANDROID &bull; IOS &bull; FIELD</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">Mobile experiences built for real networks and real hands.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">Offline-first local databases, field staff UX, and low-bandwidth resilience.</p>
+            </div>
+
+            <!-- Item 7: Healthcare -->
+            <div class="cap-card studio-card p-5 sm:p-6 rounded-2xl cursor-pointer transition-all border-l-4 border-l-transparent hover:border-l-emerald-500" data-cap="healthcare">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-xs font-semibold text-emerald-600">07 / HEALTHCARE TECHNOLOGY</span>
+                <span class="text-[11px] font-mono text-ink-subtle">DIGITAL HEALTH &bull; PRIVACY</span>
+              </div>
+              <h3 class="text-base font-bold text-ink">Digital health software and data systems, engineered with care.</h3>
+              <p class="text-xs font-body text-ink-muted mt-1 leading-relaxed">Clinical telemetry, HIPAA-informed patterns, and appointment platforms.</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Schematic & Brief Showcase (Right) -->
+          <div class="lg:col-span-6 lg:sticky lg:top-28">
+            <div class="studio-card p-8 sm:p-10 rounded-[2rem] bg-white relative">
+              <div class="flex items-center justify-between pb-4 border-b border-stone-200/80">
+                <span id="showcase-badge" class="font-mono text-xs font-semibold text-indigo-600">CAPABILITY FOCUS: 01 / 07</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-500/15"></span>
+              </div>
+
+              <!-- Graphic Schematic Box -->
+              <div id="showcase-visual" class="w-full aspect-[4/3] bg-porcelain dot-matrix-light rounded-2xl my-6 border border-stone-200/80 flex items-center justify-center p-8 transition-all duration-300">
+                <!-- Default Vector Graphic: Software Layers -->
+                <svg class="w-48 h-48 text-indigo-600" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="30" y="40" width="140" height="32" rx="6" fill="#EEF2FF" stroke="#4F46E5"/>
+                  <rect x="30" y="84" width="140" height="32" rx="6" fill="#FFFFFF" stroke="#4F46E5"/>
+                  <rect x="30" y="128" width="140" height="32" rx="6" fill="#FBF9F5" stroke="#4F46E5"/>
+                  <circle cx="50" cy="56" r="4" fill="#4F46E5"/>
+                  <circle cx="50" cy="100" r="4" fill="#10B981"/>
+                  <circle cx="50" cy="144" r="4" fill="#F25533"/>
+                  <path d="M100 72v12M100 116v12" stroke="#4F46E5" stroke-dasharray="3 3"/>
+                </svg>
+              </div>
+
+              <!-- Text Brief -->
+              <h4 id="showcase-title" class="text-xl sm:text-2xl font-bold text-ink mb-2.5">Software &amp; Web Platform Engineering</h4>
+              <p id="showcase-desc" class="text-sm sm:text-base font-body text-ink-muted leading-relaxed mb-6">
+                Full-stack application development prioritizing latency reduction, relational database integrity, and high-concurrency microservices that run flawlessly in production.
+              </p>
+
+              <!-- Details Tags -->
+              <div id="showcase-tags" class="flex flex-wrap gap-2 pt-5 border-t border-stone-200/80 text-xs font-mono">
+                <span class="px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Go / Python / Node</span>
+                <span class="px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">PostgreSQL</span>
+                <span class="px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Docker &amp; K8s</span>
+                <span class="px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200">High Uptime</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INDUSTRIES & DOMAINS ==================== -->
+    <section id="industries" class="py-24 sm:py-32 border-b border-stone-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-16 reveal">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-marigold-600 font-semibold mb-3">
+            <span class="w-2 h-2 rounded-full bg-marigold-500"></span>
+            <span>05 / SECTORS &amp; DOMAINS</span>
+          </div>
+          <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink mb-4">
+            Engineering across <em>industries.</em>
+          </h2>
+          <p class="text-ink-muted font-body text-base sm:text-lg leading-relaxed">
+            We categorize our engagements into industry verticals and core technology disciplines, bringing cross-domain insights to every product.
+          </p>
+        </div>
+
+        <!-- Grid of Industries -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+          <!-- 1. Fintech -->
+          <div class="studio-card p-7 sm:p-8 rounded-3xl hover:border-coral-300 transition-all">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-coral-50 text-coral-600 border border-coral-200 font-semibold">Vertical</span>
+              <span class="font-mono text-xs text-ink-subtle">01</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-ink mb-2.5">Fintech &amp; Banking</h3>
+            <p class="text-sm font-body text-ink-muted leading-relaxed">
+              Reliable digital financial workflows, payment gateways, USSD transactions, and ledger balance verification engines.
+            </p>
+          </div>
+
+          <!-- 2. IoT -->
+          <div class="studio-card p-7 sm:p-8 rounded-3xl hover:border-emerald-300 transition-all">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 font-semibold">Vertical</span>
+              <span class="font-mono text-xs text-ink-subtle">02</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-ink mb-2.5">Internet of Things</h3>
+            <p class="text-sm font-body text-ink-muted leading-relaxed">
+              Hardware signal ingest, edge jitter filtering, real-time vehicle fleets, and high-volume geospatial analytics.
+            </p>
+          </div>
+
+          <!-- 3. Healthcare -->
+          <div class="studio-card p-7 sm:p-8 rounded-3xl hover:border-azure-300 transition-all">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-azure-50 text-azure-600 border border-azure-200 font-semibold">Vertical</span>
+              <span class="font-mono text-xs text-ink-subtle">03</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-ink mb-2.5">Digital Healthcare</h3>
+            <p class="text-sm font-body text-ink-muted leading-relaxed">
+              Clinical workflows, patient data privacy systems, appointment automation, and reliable medical software infrastructure.
+            </p>
+          </div>
+
+          <!-- 4. Automation -->
+          <div class="studio-card p-7 sm:p-8 rounded-3xl hover:border-marigold-300 transition-all">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-marigold-50 text-marigold-600 border border-marigold-200 font-semibold">Domain</span>
+              <span class="font-mono text-xs text-ink-subtle">04</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-ink mb-2.5">Operational Automation</h3>
+            <p class="text-sm font-body text-ink-muted leading-relaxed">
+              Eliminating repetitive back-office toil with observable daemons, scheduled pipelines, and synthetic verification tests.
+            </p>
+          </div>
+
+          <!-- 5. AI/ML -->
+          <div class="studio-card p-7 sm:p-8 rounded-3xl hover:border-iris-300 transition-all">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-iris-50 text-iris-600 border border-iris-200 font-semibold">Domain</span>
+              <span class="font-mono text-xs text-ink-subtle">05</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-ink mb-2.5">Applied AI &amp; Intelligence</h3>
+            <p class="text-sm font-body text-ink-muted leading-relaxed">
+              Language model integrations, anomaly detection in time-series telemetry, and intelligent decision augmentation.
+            </p>
+          </div>
+
+          <!-- 6. Mobile & Platforms -->
+          <div class="studio-card p-7 sm:p-8 rounded-3xl hover:border-indigo-300 transition-all">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-xs font-mono px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200 font-semibold">Domain</span>
+              <span class="font-mono text-xs text-ink-subtle">06</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-ink mb-2.5">Mobile &amp; Digital Platforms</h3>
+            <p class="text-sm font-body text-ink-muted leading-relaxed">
+              Scalable web architectures, native field-first mobile software, and secure API gateways built to last.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BANANI STUDIO HUB & REACH ==================== -->
+    <section id="studio" class="py-24 sm:py-32 border-b border-stone-200/70 bg-porcelain">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal">
+          <!-- Studio Address & Credentials (Left) -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 font-mono text-xs text-coral-600 font-semibold">
+              <span class="w-2 h-2 rounded-full bg-coral-500"></span>
+              <span>06 / STUDIO LOCATION</span>
+            </div>
+            <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink">
+              One studio. <br><em>Wide reach.</em>
+            </h2>
+            <p class="text-ink-muted font-body text-base sm:text-lg leading-relaxed">
+              Our registered engineering studio is headquartered in Banani, Dhaka. From here, we work with clients and deploy systems in Bangladesh, Pakistan, and the United States — in live production, not just in workshops.
+            </p>
+
+            <!-- Studio Card -->
+            <div class="studio-card p-7 sm:p-8 rounded-3xl space-y-5">
+              <div>
+                <span class="font-mono text-xs text-ink-subtle block mb-1.5">REGISTERED OFFICE</span>
+                <address class="not-italic font-semibold text-ink text-base sm:text-lg leading-relaxed">
+                  House 57, Road 4, Block C<br>
+                  Banani, Dhaka-1212<br>
+                  Bangladesh
+                </address>
+              </div>
+
+              <div class="pt-4 border-t border-stone-200/80 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                <span class="text-ink-muted">Registration C-182691</span>
+                <button onclick="copyToClipboard('+8801757049684', 'Phone number copied!')" class="text-coral-600 hover:text-coral-700 font-semibold flex items-center gap-1.5 bg-coral-50 px-3 py-1.5 rounded-full border border-coral-200 transition-colors">
+                  <span>+880 1757 049 684</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </button>
+              </div>
+
+              <div class="pt-1">
+                <a href="https://www.google.com/maps/search/?api=1&query=House+57+Road+4+Block+C+Banani+Dhaka+1212+Bangladesh" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-mono text-indigo-600 hover:text-indigo-700 font-semibold">
+                  <span>Open in Google Maps</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Map Graphic (Right) -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="studio-card w-full max-w-[480px] aspect-square rounded-[2rem] p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden bg-white">
+              <!-- Header Coordinates -->
+              <div class="flex items-center justify-between text-xs font-mono text-ink-subtle">
+                <span>DHAKA, BANGLADESH</span>
+                <span class="text-emerald-600 font-semibold">23.7937° N / 90.4066° E</span>
+              </div>
+
+              <!-- Stylized Minimal Radar & Map Vector -->
+              <div class="relative w-full h-60 flex items-center justify-center my-4">
+                <svg class="w-full h-full text-stone-200" viewBox="0 0 300 240" fill="none">
+                  <!-- Concentric coordinate rings -->
+                  <circle cx="150" cy="120" r="102" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4 6"/>
+                  <circle cx="150" cy="120" r="68" stroke="#E2E8F0" stroke-width="1.5"/>
+                  <circle cx="150" cy="120" r="34" stroke="#CBD5E1" stroke-width="1.2"/>
+                  <!-- Crosslines -->
+                  <line x1="150" y1="10" x2="150" y2="230" stroke="#F1F5F9" stroke-width="1.5"/>
+                  <line x1="20" y1="120" x2="280" y2="120" stroke="#F1F5F9" stroke-width="1.5"/>
+                  <!-- Pulse circle -->
+                  <circle cx="150" cy="120" r="18" fill="#F25533" opacity="0.2" class="animate-ping"/>
+                  <circle cx="150" cy="120" r="6.5" fill="#F25533" stroke="#FFFFFF" stroke-width="2"/>
+                </svg>
+                <div class="absolute inset-x-0 bottom-3 text-center font-mono text-[11px] text-ink-muted tracking-wider">
+                  STUDIO 01 &bull; BANANI BLOCK C
+                </div>
+              </div>
+
+              <!-- Active Operational Hubs -->
+              <div class="pt-4 border-t border-stone-200/80 flex items-center justify-between text-xs font-mono text-ink-muted">
+                <span>DEPLOYMENTS:</span>
+                <span class="font-semibold text-ink">BANGLADESH &bull; PAKISTAN &bull; USA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TEAM & SPECIALISTS ==================== -->
+    <section id="team" class="py-24 sm:py-32 border-b border-stone-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start reveal">
+          <div class="lg:col-span-5 space-y-5">
+            <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-600 font-semibold">
+              <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+              <span>07 / SPECIALISTS</span>
+            </div>
+            <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink">
+              Seven specialists. <br><em>One direction.</em>
+            </h2>
+            <p class="text-ink-muted font-body text-base sm:text-lg leading-relaxed">
+              Engineering, data, and design in the same conversation. We stay close to what we build — from schema and interface to the production alert that arrives at 3 a.m.
+            </p>
+
+            <div class="pt-3">
+              <ul class="space-y-3.5 text-xs font-mono text-ink-muted">
+                <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-coral-500"></span> Platform Engineering &amp; Microservices</li>
+                <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Time-Series Data &amp; Telemetry Infrastructure</li>
+                <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Product Architecture &amp; Field Systems UX</li>
+                <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-marigold-500"></span> Production Discovery &amp; 24/7 Operations</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Leadership Highlight: Hasan Sarower -->
+          <div class="lg:col-span-7">
+            <div class="studio-card p-8 sm:p-10 rounded-[2rem]">
+              <div class="flex items-center gap-5 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-coral-50 border border-coral-200 flex items-center justify-center font-serif italic text-2xl font-bold text-coral-600 shadow-sm shrink-0">
+                  HS
+                </div>
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-bold text-ink">Hasan Sarower</h3>
+                  <p class="text-xs font-mono text-coral-600 font-semibold mt-0.5">Head of Product and Business</p>
+                  <span class="text-[11px] font-mono text-ink-subtle">Leadership &amp; Delivery</span>
+                </div>
+              </div>
+
+              <p class="text-sm sm:text-base font-body text-ink-muted leading-relaxed mb-6">
+                Leading product direction, strategic engineering partnerships, and delivery for national-scale telemetry and fintech infrastructure at Anchorblock Technology LLC.
+              </p>
+
+              <div class="flex flex-wrap gap-2 pt-5 border-t border-stone-200/80 text-xs font-mono">
+                <span class="px-3.5 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Product Direction</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">Client Partnerships</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">System Delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT & INQUIRY ==================== -->
+    <section id="contact" class="py-24 sm:py-32 bg-porcelain">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-coral-600 font-semibold mb-3">
+            <span class="w-2 h-2 rounded-full bg-coral-500"></span>
+            <span>08 / NEXT STEP</span>
+          </div>
+          <h2 class="display-title text-3xl sm:text-5xl lg:text-6xl font-bold text-ink mb-4">
+            Have a challenge <em>worth solving?</em>
+          </h2>
+          <p class="text-ink-muted font-body text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
+            Let’s bring the right people, ideas, and software engineering discipline together to make it happen.
+          </p>
+        </div>
+
+        <!-- Clean White Form Card -->
+        <div class="studio-card p-8 sm:p-12 rounded-[2rem] bg-white">
+          <form id="contact-form" onsubmit="event.preventDefault(); handleInquirySubmit();" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-xs font-mono font-semibold text-ink mb-2">YOUR NAME *</label>
+                <input type="text" id="name" required placeholder="Elena Vance" class="w-full bg-porcelain border border-stone-200/90 focus:border-ink focus:bg-white text-ink text-sm px-4 py-3.5 rounded-xl font-sans focus:outline-none focus:ring-2 focus:ring-ink/10 transition-all">
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-mono font-semibold text-ink mb-2">BUSINESS EMAIL *</label>
+                <input type="email" id="email" required placeholder="elena@company.com" class="w-full bg-porcelain border border-stone-200/90 focus:border-ink focus:bg-white text-ink text-sm px-4 py-3.5 rounded-xl font-sans focus:outline-none focus:ring-2 focus:ring-ink/10 transition-all">
+              </div>
+            </div>
+
+            <div>
+              <label for="service-select" class="block text-xs font-mono font-semibold text-ink mb-2">PRIMARY FOCUS AREA</label>
+              <select id="service-select" class="w-full bg-porcelain border border-stone-200/90 focus:border-ink focus:bg-white text-ink text-sm px-4 py-3.5 rounded-xl font-sans focus:outline-none focus:ring-2 focus:ring-ink/10 transition-all">
+                <option value="fintech">Fintech Platforms &amp; Automation</option>
+                <option value="iot">IoT &amp; Geospatial Fleet Systems</option>
+                <option value="software">Web Platform &amp; Backend Engineering</option>
+                <option value="aiml">Applied AI &amp; Machine Learning</option>
+                <option value="other">General Technical Architecture Brief</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-mono font-semibold text-ink mb-2">BRIEF US ON YOUR PROJECT *</label>
+              <textarea id="message" rows="4" required placeholder="Tell us about your system requirements, timeline, or current challenges..." class="w-full bg-porcelain border border-stone-200/90 focus:border-ink focus:bg-white text-ink text-sm px-4 py-3.5 rounded-xl font-sans focus:outline-none focus:ring-2 focus:ring-ink/10 transition-all"></textarea>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <div class="text-xs font-mono text-ink-muted">
+                Prefer direct phone? <button type="button" onclick="copyToClipboard('+8801757049684', 'Phone number copied!')" class="text-coral-600 font-semibold hover:underline">+880 1757 049 684</button>
+              </div>
+              <button type="submit" id="submit-btn" class="w-full sm:w-auto px-8 py-4 bg-ink hover:bg-coral-600 text-white font-mono font-semibold text-xs tracking-wider uppercase rounded-full transition-colors duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                <span>Send Message</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </button>
             </div>
 
-            <div class="pt-1">
-              <a href="https://www.google.com/maps/search/?api=1&query=House+57+Road+4+Block+C+Banani+Dhaka+1212+Bangladesh" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-mono text-indigo-600 hover:text-indigo-700 font-semibold">
-                <span>Open in Google Maps</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
+            <!-- Message Sent Confirmation Banner -->
+            <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono">
+              <strong>Transmission Received:</strong> Thank you for reaching out. An Anchorblock technical lead will review your requirements and respond promptly.
             </div>
-          </div>
-        </div>
-
-        <!-- Studio Map Graphic (Right) -->
-        <div class="lg:col-span-6 flex justify-center">
-          <div class="studio-card w-full max-w-[480px] aspect-square rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden bg-white">
-            <!-- Header Coordinates -->
-            <div class="flex items-center justify-between text-xs font-mono text-ink-subtle">
-              <span>DHAKA, BANGLADESH</span>
-              <span class="text-emerald-600 font-semibold">23.7937° N / 90.4066° E</span>
-            </div>
-
-            <!-- Stylized Minimal Radar & Map Vector -->
-            <div class="relative w-full h-56 flex items-center justify-center my-4">
-              <svg class="w-full h-full text-stone-200" viewBox="0 0 300 240" fill="none">
-                <!-- Concentric coordinate rings -->
-                <circle cx="150" cy="120" r="100" stroke="#F3F4F6" stroke-width="1.5" stroke-dasharray="4 6"/>
-                <circle cx="150" cy="120" r="65" stroke="#E5E7EB" stroke-width="1.5"/>
-                <circle cx="150" cy="120" r="30" stroke="#D1D5DB" stroke-width="1.2"/>
-                <!-- Crosslines -->
-                <line x1="150" y1="10" x2="150" y2="230" stroke="#E5E7EB" stroke-width="1"/>
-                <line x1="20" y1="120" x2="280" y2="120" stroke="#E5E7EB" stroke-width="1"/>
-                <!-- Pulse circle -->
-                <circle cx="150" cy="120" r="14" fill="#FF5733" opacity="0.2" class="animate-ping"/>
-                <circle cx="150" cy="120" r="6" fill="#FF5733"/>
-              </svg>
-              <div class="absolute inset-x-0 bottom-4 text-center font-mono text-[11px] text-ink-muted">
-                STUDIO 01 &bull; BANANI BLOCK C
-              </div>
-            </div>
-
-            <!-- Active Operational Hubs -->
-            <div class="pt-3 border-t border-stone-200 flex items-center justify-between text-xs font-mono text-ink-muted">
-              <span>DEPLOYMENTS:</span>
-              <span class="font-medium text-ink">BANGLADESH &bull; PAKISTAN &bull; USA</span>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== TEAM & SPECIALISTS ==================== -->
-  <section id="team" class="py-24 border-b border-stone-200/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <div class="lg:col-span-5 space-y-4">
-          <div class="flex items-center gap-2 font-mono text-xs text-indigo-600 mb-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-            <span>07 / SPECIALISTS</span>
-          </div>
-          <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight">
-            Seven specialists. <br><em>One direction.</em>
-          </h2>
-          <p class="text-ink-muted font-body text-base leading-relaxed">
-            Engineering, data, and design in the same conversation. We stay close to what we build — from schema and interface to the production alert that arrives at 3 a.m.
-          </p>
-
-          <div class="pt-4">
-            <ul class="space-y-3 text-xs font-mono text-ink-muted">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-coral-500"></span> Platform Engineering &amp; Microservices</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Time-Series Data &amp; Telemetry Infrastructure</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Product Architecture &amp; Field Systems UX</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-marigold-500"></span> Production Discovery &amp; 24/7 Operations</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Leadership Highlight: Hasan Sarower -->
-        <div class="lg:col-span-7">
-          <div class="studio-card p-8 rounded-3xl">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 rounded-2xl bg-coral-50 border border-coral-200 flex items-center justify-center font-display text-2xl font-bold text-coral-600 shadow-sm">
-                HS
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-ink">Hasan Sarower</h3>
-                <p class="text-xs font-mono text-coral-600 font-semibold">Head of Product and Business</p>
-                <span class="text-[11px] font-mono text-ink-subtle">Leadership &amp; Delivery</span>
-              </div>
-            </div>
-
-            <p class="text-sm font-body text-ink-muted leading-relaxed mb-6">
-              Leading product direction, strategic engineering partnerships, and delivery for national-scale telemetry and fintech infrastructure at Anchorblock Technology LLC.
-            </p>
-
-            <div class="flex flex-wrap gap-2 pt-4 border-t border-stone-200 text-xs font-mono">
-              <span class="px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Product Direction</span>
-              <span class="px-3 py-1 rounded-full bg-stone-100 text-ink-muted">Client Partnerships</span>
-              <span class="px-3 py-1 rounded-full bg-stone-100 text-ink-muted">System Delivery</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CONTACT & INQUIRY ==================== -->
-  <section id="contact" class="py-24 bg-porcelain">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 font-mono text-xs text-coral-600 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-coral-500"></span>
-          <span>08 / NEXT STEP</span>
-        </div>
-        <h2 class="display-title text-3xl sm:text-5xl font-bold text-ink tracking-tight mb-3">
-          Have a challenge <em>worth solving?</em>
-        </h2>
-        <p class="text-ink-muted font-body text-base max-w-lg mx-auto">
-          Let’s bring the right people, ideas, and software engineering discipline together to make it happen.
-        </p>
-      </div>
-
-      <!-- Clean White Form Card -->
-      <div class="studio-card p-8 sm:p-12 rounded-3xl bg-white">
-        <form id="contact-form" onsubmit="event.preventDefault(); handleInquirySubmit();" class="space-y-6">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-xs font-mono font-medium text-ink mb-2">YOUR NAME *</label>
-              <input type="text" id="name" required placeholder="Elena Vance" class="w-full bg-stone-50 border border-stone-200 focus:border-ink text-ink text-sm px-4 py-3 rounded-xl font-sans focus:outline-none focus:ring-1 focus:ring-ink transition-all">
-            </div>
-            <div>
-              <label for="email" class="block text-xs font-mono font-medium text-ink mb-2">BUSINESS EMAIL *</label>
-              <input type="email" id="email" required placeholder="elena@company.com" class="w-full bg-stone-50 border border-stone-200 focus:border-ink text-ink text-sm px-4 py-3 rounded-xl font-sans focus:outline-none focus:ring-1 focus:ring-ink transition-all">
-            </div>
-          </div>
-
-          <div>
-            <label for="service-select" class="block text-xs font-mono font-medium text-ink mb-2">PRIMARY FOCUS AREA</label>
-            <select id="service-select" class="w-full bg-stone-50 border border-stone-200 focus:border-ink text-ink text-sm px-4 py-3 rounded-xl font-sans focus:outline-none focus:ring-1 focus:ring-ink transition-all">
-              <option value="fintech">Fintech Platforms &amp; Automation</option>
-              <option value="iot">IoT &amp; Geospatial Fleet Systems</option>
-              <option value="software">Web Platform &amp; Backend Engineering</option>
-              <option value="aiml">Applied AI &amp; Machine Learning</option>
-              <option value="other">General Technical Architecture Brief</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="message" class="block text-xs font-mono font-medium text-ink mb-2">BRIEF US ON YOUR PROJECT *</label>
-            <textarea id="message" rows="4" required placeholder="Tell us about your system requirements, timeline, or current challenges..." class="w-full bg-stone-50 border border-stone-200 focus:border-ink text-ink text-sm px-4 py-3 rounded-xl font-sans focus:outline-none focus:ring-1 focus:ring-ink transition-all"></textarea>
-          </div>
-
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-            <div class="text-xs font-mono text-ink-muted">
-              Prefer direct phone? <button type="button" onclick="copyToClipboard('+8801757049684', 'Phone number copied!')" class="text-coral-600 font-semibold hover:underline">+880 1757 049 684</button>
-            </div>
-            <button type="submit" id="submit-btn" class="w-full sm:w-auto px-8 py-3.5 bg-ink hover:bg-stone-800 text-white font-mono font-medium text-xs tracking-wider uppercase rounded-full transition-all shadow-sm hover:shadow flex items-center justify-center gap-2">
-              <span>Send Message</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </button>
-          </div>
-
-          <!-- Message Sent Confirmation Banner -->
-          <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono">
-            <strong>Transmission Received:</strong> Thank you for reaching out. An Anchorblock technical lead will review your requirements and respond promptly.
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+  </div> <!-- /End Foreground Content Wrapper -->
 
 </main>
 
 <!-- ==================== FOOTER ==================== -->
-<footer class="border-t border-stone-200 bg-white pt-16 pb-12 font-sans text-xs text-ink-muted">
+<footer class="relative z-10 border-t border-stone-200/80 bg-white pt-16 pb-12 font-sans text-xs text-ink-muted">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-stone-200">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-stone-200/80">
       <!-- Brand & Mission -->
       <div class="lg:col-span-5 space-y-4">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-porcelain border border-stone-200 flex items-center justify-center">
+          <div class="w-9 h-9 rounded-xl bg-porcelain border border-stone-200 flex items-center justify-center">
             <svg class="w-4 h-4 text-ink" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <circle cx="14" cy="5.6" r="2.6" />
               <path d="M14 8.4V24M7.4 12.8h13.2M4.2 16.6c0 4.2 4.4 6.7 9.8 6.7s9.8-2.5 9.8-6.7" />
@@ -1273,13 +1400,13 @@ html {
         <p class="text-ink-muted font-body text-sm max-w-sm leading-relaxed">
           Software, high-concurrency data systems, and automation studio. Built in Dhaka, active in global production.
         </p>
-        <p class="font-mono text-xs text-coral-600 font-medium">
+        <p class="font-serif italic text-base text-coral-600">
           Quietly powerful. Technically extraordinary.
         </p>
       </div>
 
       <!-- Quick Nav -->
-      <div class="lg:col-span-2 space-y-2">
+      <div class="lg:col-span-2 space-y-2.5">
         <p class="font-mono font-semibold text-ink text-xs uppercase mb-3">Studio</p>
         <a href="#top" class="block text-ink-muted hover:text-ink transition-colors">Home</a>
         <a href="#philosophy" class="block text-ink-muted hover:text-ink transition-colors">Philosophy</a>
@@ -1289,7 +1416,7 @@ html {
       </div>
 
       <!-- Capabilities Nav -->
-      <div class="lg:col-span-2 space-y-2">
+      <div class="lg:col-span-2 space-y-2.5">
         <p class="font-mono font-semibold text-ink text-xs uppercase mb-3">Capabilities</p>
         <span class="block text-ink-muted">Software Development</span>
         <span class="block text-ink-muted">AI &amp; Machine Learning</span>
@@ -1320,7 +1447,7 @@ html {
       <div class="flex items-center gap-4">
         <span>Dhaka: 23.7937° N / 90.4066° E</span>
         <span>•</span>
-        <a href="#top" class="text-ink hover:text-coral-600 transition-colors">Back to top &uarr;</a>
+        <a href="#top" class="text-ink hover:text-coral-600 transition-colors font-semibold">Back to top &uarr;</a>
       </div>
     </div>
   </div>
@@ -1335,7 +1462,6 @@ function updateDhakaTime() {
   const clockEl = document.getElementById('dhaka-time');
   const mobileClockEl = document.getElementById('mobile-dhaka-time');
   const now = new Date();
-  // Dhaka is UTC+6
   const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
   const dhaka = new Date(utc + (3600000 * 6));
 
@@ -1372,7 +1498,6 @@ function copyToClipboard(text, message) {
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toast-message');
 
-  // Fallback for iFrame restrictions
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.style.position = 'fixed';
@@ -1412,10 +1537,10 @@ const capData = {
     svg: `<svg class="w-48 h-48 text-indigo-600" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="30" y="40" width="140" height="32" rx="6" fill="#EEF2FF" stroke="#4F46E5"/>
             <rect x="30" y="84" width="140" height="32" rx="6" fill="#FFFFFF" stroke="#4F46E5"/>
-            <rect x="30" y="128" width="140" height="32" rx="6" fill="#FAF9F5" stroke="#4F46E5"/>
+            <rect x="30" y="128" width="140" height="32" rx="6" fill="#FBF9F5" stroke="#4F46E5"/>
             <circle cx="50" cy="56" r="4" fill="#4F46E5"/>
             <circle cx="50" cy="100" r="4" fill="#10B981"/>
-            <circle cx="50" cy="144" r="4" fill="#FF5733"/>
+            <circle cx="50" cy="144" r="4" fill="#F25533"/>
             <path d="M100 72v12M100 116v12" stroke="#4F46E5" stroke-dasharray="3 3"/>
           </svg>`
   },
@@ -1444,12 +1569,12 @@ const capData = {
     tags: ['Double-Entry Ledgers', 'USSD Integrations', 'Real-Time Reconciliation', 'Bank APIs'],
     borderClass: 'border-l-coral-500',
     svg: `<svg class="w-48 h-48 text-coral-500" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="24" y="60" width="152" height="80" rx="8" fill="#FFF5F2" stroke="#FF5733"/>
-            <path d="M24 90h152M50 115h30M130 115h20" stroke="#FF5733"/>
-            <circle cx="50" cy="75" r="4" fill="#FF5733"/>
+            <rect x="24" y="60" width="152" height="80" rx="8" fill="#FFF5F2" stroke="#F25533"/>
+            <path d="M24 90h152M50 115h30M130 115h20" stroke="#F25533"/>
+            <circle cx="50" cy="75" r="4" fill="#F25533"/>
             <circle cx="64" cy="75" r="4" fill="#F59E0B"/>
-            <circle cx="150" cy="100" r="14" fill="#FF5733" opacity="0.15"/>
-            <path d="M145 100h10M150 95v10" stroke="#FF5733" stroke-width="2"/>
+            <circle cx="150" cy="100" r="14" fill="#F25533" opacity="0.15"/>
+            <path d="M145 100h10M150 95v10" stroke="#F25533" stroke-width="2"/>
           </svg>`
   },
   iot: {
@@ -1464,7 +1589,7 @@ const capData = {
             <circle cx="100" cy="100" r="35" stroke="#10B981"/>
             <circle cx="100" cy="100" r="8" fill="#10B981"/>
             <path d="M100 40v20M100 140v20M40 100h20M140 100h20" stroke="#10B981"/>
-            <circle cx="130" cy="80" r="5" fill="#FF5733"/>
+            <circle cx="130" cy="80" r="5" fill="#F25533"/>
           </svg>`
   },
   automation: {
@@ -1546,7 +1671,7 @@ capCards.forEach(card => {
       showcaseVisual.innerHTML = data.svg;
 
       showcaseTags.innerHTML = data.tags.map(tag => 
-        `<span class="px-2.5 py-1 rounded-full bg-stone-100 text-ink-muted">${tag}</span>`
+        `<span class="px-3 py-1.5 rounded-full bg-porcelain-alt text-ink-muted">${tag}</span>`
       ).join('');
     }
   };
@@ -1561,18 +1686,27 @@ capCards.forEach(card => {
 const envProdBtn = document.getElementById('env-prod-btn');
 const envUatBtn = document.getElementById('env-uat-btn');
 const uptimeDisplay = document.getElementById('patron-uptime');
+const cadenceDisplay = document.getElementById('patron-cadence');
+const nodesDisplay = document.getElementById('patron-nodes');
+const latencyDisplay = document.getElementById('patron-latency');
 
 if (envProdBtn && envUatBtn) {
   envProdBtn.addEventListener('click', () => {
-    envProdBtn.className = 'px-3 py-1 rounded-full bg-ink text-white font-medium transition-all';
-    envUatBtn.className = 'px-3 py-1 rounded-full text-ink-muted hover:text-ink transition-all';
+    envProdBtn.className = 'px-3.5 py-1 rounded-full bg-ink text-white font-medium transition-all';
+    envUatBtn.className = 'px-3.5 py-1 rounded-full text-ink-muted hover:text-ink transition-all';
     if (uptimeDisplay) uptimeDisplay.textContent = '99.998%';
+    if (cadenceDisplay) cadenceDisplay.textContent = '4.2s Cont.';
+    if (nodesDisplay) nodesDisplay.textContent = '16 Cluster';
+    if (latencyDisplay) latencyDisplay.textContent = '18ms AVG';
   });
 
   envUatBtn.addEventListener('click', () => {
-    envUatBtn.className = 'px-3 py-1 rounded-full bg-emerald-600 text-white font-medium transition-all';
-    envProdBtn.className = 'px-3 py-1 rounded-full text-ink-muted hover:text-ink transition-all';
+    envUatBtn.className = 'px-3.5 py-1 rounded-full bg-emerald-600 text-white font-medium transition-all';
+    envProdBtn.className = 'px-3.5 py-1 rounded-full text-ink-muted hover:text-ink transition-all';
     if (uptimeDisplay) uptimeDisplay.textContent = '99.870%';
+    if (cadenceDisplay) cadenceDisplay.textContent = '2.0s Burst';
+    if (nodesDisplay) nodesDisplay.textContent = '06 Staging';
+    if (latencyDisplay) latencyDisplay.textContent = '24ms AVG';
   });
 }
 
@@ -1599,6 +1733,21 @@ function handleInquirySubmit() {
     form.reset();
   }, 750);
 }
+
+/* -------------------------------------------------------------
+ * 7. Smooth Scroll Reveal Observer
+ * ----------------------------------------------------------- */
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>

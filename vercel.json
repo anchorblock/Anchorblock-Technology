@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": ".",
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/anchorblock_studio.html"
+    }
+  ]
+}

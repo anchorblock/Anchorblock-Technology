@@ -53,70 +53,49 @@ export async function Careers() {
         : "No current openings";
 
   return (
-    <section id="careers" className="border-b border-stone-200/70 bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-          <div className="max-w-3xl">
-            <div className="mb-3 inline-flex items-center gap-2 font-mono text-xs font-semibold text-emerald-700">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              <span>CAREERS / JOIN THE STUDIO</span>
-            </div>
-            <h2 className="display-title text-3xl font-bold text-ink sm:text-5xl">
-              Build useful things <em>with us.</em>
+    <section className="section section-careers" id="careers" aria-labelledby="careers-title">
+      <div className="wrap">
+        <div className="section-heading careers-heading">
+          <div>
+            <p className="section-kicker">07 / CAREERS</p>
+            <h2 id="careers-title">
+              Build useful things
+              <br />
+              <span>with us.</span>
             </h2>
-            <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-ink-muted">
+            <p className="section-intro section-intro-wrap">
               We bring product thinking, software engineering, and production support into one team.
               Open roles appear here when we are hiring.
             </p>
           </div>
-          <span
-            id="career-count"
-            className="inline-flex w-fit items-center rounded-full border border-stone-200 bg-porcelain px-4 py-2 font-mono text-xs text-ink-muted"
-          >
+          <span id="career-count" className="career-count">
             {count}
           </span>
         </div>
-        <div
-          id="career-list"
-          className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
-          aria-live="polite"
-        >
+        <div id="career-list" className="career-grid" aria-live="polite">
           {result.status === "error" ? (
-            <p className="col-span-full rounded-2xl border border-stone-200 bg-white px-6 py-8 text-sm text-ink-muted">
-              Career listings are temporarily unavailable. Please check back soon.
-            </p>
+            <p className="career-empty">Career listings are temporarily unavailable. Please check back soon.</p>
           ) : roles.length === 0 ? (
-            <p
-              id="career-empty"
-              className="col-span-full rounded-2xl border border-dashed border-stone-300 bg-porcelain/70 px-6 py-8 text-sm text-ink-muted"
-            >
+            <p id="career-empty" className="career-empty">
               No current openings. Please check back for future opportunities.
             </p>
           ) : (
             roles.map((role) => (
-              <article key={role.id} className="career-card flex flex-col p-6 sm:p-7">
-                <div className="mb-5 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-emerald-50 px-3 py-1 font-mono text-[10px] font-semibold text-emerald-800">
-                    {role.employment_type}
-                  </span>
-                  <span className="rounded-full bg-porcelain px-3 py-1 font-mono text-[10px] text-ink-muted">
-                    {role.team_name}
-                  </span>
+              <article key={role.id} className="career-card">
+                <div className="career-meta">
+                  <span className="product-category-chip">{role.employment_type}</span>
+                  <span className="career-team">{role.team_name}</span>
                 </div>
-                <h3 className="text-xl font-bold text-ink">{role.title}</h3>
-                <p className="mt-2 font-mono text-xs text-ink-muted">{role.location}</p>
-                <p className="mt-5 flex-1 whitespace-pre-line text-sm leading-relaxed text-ink-muted">
-                  {role.description}
-                </p>
-                <div className="mt-6 flex items-end justify-between gap-3 border-t border-stone-200 pt-4">
-                  <span className="text-[10px] font-mono text-ink-subtle">
-                    {role.closes_on ? `Apply by ${formatDeadline(role.closes_on)}` : "Applications open"}
-                  </span>
+                <h3>{role.title}</h3>
+                <p className="career-location">{role.location}</p>
+                <p className="career-description">{role.description}</p>
+                <div className="career-footer">
+                  <span>{role.closes_on ? `Apply by ${formatDeadline(role.closes_on)}` : "Applications open"}</span>
                   <a
-                    className="shrink-0 rounded-full bg-ink px-4 py-2.5 text-xs font-semibold text-white hover:bg-emerald-700 transition-colors"
+                    className="button button-primary"
                     href={`mailto:${encodeURI(role.apply_email)}?subject=${encodeURIComponent(`Application: ${role.title}`)}`}
                   >
-                    Apply
+                    Apply <span aria-hidden="true">↗</span>
                   </a>
                 </div>
               </article>

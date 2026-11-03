@@ -10,7 +10,7 @@ export const contentType = "image/png";
 // Read at module scope so the image is generated once at build time.
 const logo = await readFile(join(process.cwd(), "public/anchorblock_logo.jpeg"), "base64");
 
-/** Social share card in the hero's palette: obsidian background, coral accent. */
+/** Social share card in the hero's palette: brand blue with a soft lavender accent. */
 export default async function OpengraphImage() {
   const logoSrc = `data:image/jpeg;base64,${logo}`;
 
@@ -24,7 +24,7 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "linear-gradient(115deg, #101014 0%, #171b2d 60%, #1d2340 100%)",
+          background: "linear-gradient(125deg, #1429aa 0%, #1b33d3 55%, #3037a7 100%)",
           color: "#ffffff",
         }}
       >
@@ -32,16 +32,16 @@ export default async function OpengraphImage() {
           <img src={logoSrc} width={88} height={88} alt="" style={{ borderRadius: 20, background: "#fff" }} />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 40, fontWeight: 700 }}>{site.name}</span>
-            <span style={{ fontSize: 24, color: "rgba(242,244,250,.7)" }}>Information Technology &amp; Services</span>
+            <span style={{ fontSize: 24, color: "rgba(255,255,255,.82)" }}>Information Technology &amp; Services</span>
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 84, fontWeight: 700, lineHeight: 1.02, letterSpacing: -3 }}>
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 84, fontWeight: 300, lineHeight: 1.02, letterSpacing: -4 }}>
           <span>Engineering tomorrow.</span>
           <span>
-            Building what&nbsp;<span style={{ color: "#ff987f" }}>matters.</span>
+            Building what&nbsp;<span style={{ color: "#d9ddff" }}>matters.</span>
           </span>
         </div>
-        <div style={{ display: "flex", fontSize: 24, color: "rgba(242,244,250,.7)" }}>
+        <div style={{ display: "flex", fontSize: 24, color: "rgba(255,255,255,.82)" }}>
           Software &amp; data systems studio · Mirpur DOHS, Dhaka · Est. {site.foundingYear}
         </div>
       </div>

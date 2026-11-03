@@ -310,7 +310,7 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
             <p className="mb-2 font-mono text-[10px] font-semibold tracking-[.18em] text-indigo-600">
               SECURE SIGN IN
             </p>
-            <h3 className="display-title mb-3 text-3xl font-bold text-ink">Manage the studio site.</h3>
+            <h3 className="mb-3 text-3xl font-medium tracking-tight text-ink">Manage the studio site.</h3>
             <p className="mb-7 text-sm leading-relaxed text-ink-muted">
               Sign in with an administrator account provisioned for Anchorblock.
             </p>

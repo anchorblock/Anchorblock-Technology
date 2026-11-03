@@ -37,7 +37,7 @@ Changes to these variables take effect on the next deployment.
 
 ## Vercel deployment
 
-`vercel.json` sets the framework to Next.js. If the Vercel project was created for the previous static site, check **Project Settings → Build and Deployment** and clear any Output Directory or Build Command overrides so the Next.js defaults apply.
+`vercel.json` sets the framework, install command, build command and output directory (`.next`). These take precedence over **Project Settings → Build and Deployment**, which still holds the Output Directory `.` from the previous static site; with that setting, Vercel looks for `routes-manifest.json` in the repository root and the deployment fails.
 
 Add the Supabase variables above to the Vercel project for Preview and Production.
 

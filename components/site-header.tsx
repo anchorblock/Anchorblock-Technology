@@ -79,12 +79,6 @@ export function SiteHeader() {
             Location
           </a>
           <a
-            href="#team"
-            className="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all"
-          >
-            Team
-          </a>
-          <a
             href="#careers"
             className="px-3.5 py-2 rounded-full hover:bg-stone-200/50 hover:text-ink transition-all"
           >
@@ -153,9 +147,6 @@ export function SiteHeader() {
         </a>
         <a href="#studio" className="block text-ink-muted hover:text-ink py-1" onClick={closeMenu}>
           Location
-        </a>
-        <a href="#team" className="block text-ink-muted hover:text-ink py-1" onClick={closeMenu}>
-          Team
         </a>
         <a href="#careers" className="block text-ink-muted hover:text-ink py-1" onClick={closeMenu}>
           Careers

@@ -16,7 +16,6 @@ import { SelectedWork } from "@/components/selected-work";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StudioLocation } from "@/components/studio-location";
-import { Team } from "@/components/team";
 import { Toast } from "@/components/toast";
 import { site, siteUrl } from "@/lib/site";
 import { getSupabaseConfig } from "@/lib/supabase/config";
@@ -88,7 +87,7 @@ export default function Home() {
           {/* Custom sections published by the Anchorblock admin workspace */}
           <CustomSections />
           <Careers />
-          <Team />
+          {/* Team section (components/team.tsx) is hidden for now; render <Team /> here to restore it. */}
           <Contact />
         </div>
       </main>

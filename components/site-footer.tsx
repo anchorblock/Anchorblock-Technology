@@ -53,9 +53,6 @@ export function SiteFooter() {
             >
               Capabilities
             </a>{" "}
-            <a href="#team" className="block text-ink-muted hover:text-ink transition-colors">
-              Team
-            </a>{" "}
             <a href="#careers" className="block text-ink-muted hover:text-ink transition-colors">
               Careers
             </a>{" "}

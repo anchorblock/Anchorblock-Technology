@@ -1,22 +1,22 @@
 import Image from "next/image";
 import { AdminOpenButton } from "@/components/admin/admin-open-button";
 import { AdminPanel } from "@/components/admin/admin-panel";
-import { BrandOpening } from "@/components/brand-opening";
 import { Capabilities } from "@/components/capabilities";
 import { Careers } from "@/components/careers";
-import { ClientMarquee } from "@/components/client-marquee";
+import { ClientWork } from "@/components/client-work";
 import { Contact } from "@/components/contact";
 import { CustomSections } from "@/components/custom-sections";
-import { Hero, HeroBackdrop } from "@/components/hero";
-import { Industries } from "@/components/industries";
+import { Hero } from "@/components/hero";
+import { IconLibrary } from "@/components/icon-library";
 import { JsonLd } from "@/components/json-ld";
+import { PartnerBand } from "@/components/partner-band";
 import { Philosophy } from "@/components/philosophy";
+import { Products } from "@/components/products";
 import { RevealObserver } from "@/components/reveal-observer";
-import { SelectedWork } from "@/components/selected-work";
+import { Sectors } from "@/components/sectors";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { StudioLocation } from "@/components/studio-location";
-import { Toast } from "@/components/toast";
+import { Studio } from "@/components/studio";
 import { site, siteUrl } from "@/lib/site";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
@@ -36,7 +36,9 @@ const organization = {
       telephone: site.telephone,
       address: { "@type": "PostalAddress", ...site.address },
       geo: { "@type": "GeoCoordinates", ...site.geo },
+      email: site.email,
       areaServed: ["Bangladesh", "Pakistan", "United States"],
+      sameAs: Object.values(site.social),
     },
     {
       "@type": "WebSite",
@@ -52,46 +54,38 @@ const organization = {
 export default function Home() {
   return (
     <>
-      <BrandOpening />
-      {/* Ambient Soft Chromatic Mesh */}
-      <div className="ambient-mesh" aria-hidden="true">
-        <div className="orb orb-coral" />
-        <div className="orb orb-indigo" />
-        <div className="orb orb-emerald" />
-      </div>
-      {/* Toast Feedback Notification */}
-      <Toast />
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <IconLibrary />
+      <SiteHeader />
+      <main id="main">
+        <Hero />
+        <PartnerBand />
+        <Philosophy />
+        <Products />
+        {/* Open source section (components/open-source.tsx) is hidden for now; render <OpenSource /> here to restore it. */}
+        <ClientWork />
+        <Capabilities />
+        <Sectors />
+        <Studio />
+        {/* Team section (components/team.tsx) is hidden for now; render <Team /> here to restore it. */}
+        {/* Custom sections published by the Anchorblock admin workspace */}
+        <CustomSections />
+        <Careers />
+        <Contact />
+      </main>
+      <SiteFooter />
       <AdminOpenButton
         type="button"
-        data-admin-open=""
         className="admin-floating-button"
         aria-label="Open Anchorblock admin login"
       >
-        <Image src="/anchorblock_logo.jpeg" alt="" width={200} height={200} sizes="41px" />
+        <Image src="/anchorblock_logo.jpeg" alt="" width={200} height={200} sizes="36px" />
         <span>Admin</span>
       </AdminOpenButton>
       {/* Admin sign-in and publishing workspace */}
       <AdminPanel config={getSupabaseConfig()} />
-      <SiteHeader />
-      <main id="top" className="relative">
-        <HeroBackdrop />
-        <Hero />
-        <Philosophy />
-        {/* ==================== MAIN CONTENT WRAPPER ==================== */}
-        <div className="relative z-10 bg-porcelain border-t border-white/80">
-          <ClientMarquee />
-          <SelectedWork />
-          <Capabilities />
-          <Industries />
-          <StudioLocation />
-          {/* Custom sections published by the Anchorblock admin workspace */}
-          <CustomSections />
-          <Careers />
-          {/* Team section (components/team.tsx) is hidden for now; render <Team /> here to restore it. */}
-          <Contact />
-        </div>
-      </main>
-      <SiteFooter />
       <RevealObserver />
       <JsonLd data={organization} />
     </>

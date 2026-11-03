@@ -22,34 +22,35 @@ export async function CustomSections() {
   return (
     <div id="site-custom-sections">
       {[...groups].map(([heading, items]) => (
-        <section key={heading} id={`studio-${slug(heading)}`} className="cms-section">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="display-title mb-8 text-3xl font-bold text-ink sm:text-5xl">{heading}</h2>
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <section
+          key={heading}
+          id={`studio-${slug(heading)}`}
+          className="section section-cms"
+          aria-labelledby={`studio-${slug(heading)}-title`}
+        >
+          <div className="wrap">
+            <div className="section-heading section-heading-wide">
+              <div>
+                <h2 id={`studio-${slug(heading)}-title`}>{heading}</h2>
+              </div>
+            </div>
+            <div className="cms-grid">
               {items.map((item) => {
                 const imageUrl = safeUrl(item.image_url, true);
                 const linkUrl = safeUrl(item.link_url);
                 return (
-                  <article key={item.id} className="cms-card overflow-hidden">
+                  <article key={item.id} className="cms-card">
                     {imageUrl && (
                       // Admin-provided images can come from any host, so they bypass next/image.
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={imageUrl} alt={item.title} loading="lazy" className="h-52 w-full object-cover" />
+                      <img src={imageUrl} alt={item.title} loading="lazy" />
                     )}
-                    <div className="p-6 sm:p-7">
-                      <h3 className="mb-3 text-xl font-bold tracking-tight text-ink">{item.title}</h3>
-                      <p className="whitespace-pre-line text-sm leading-relaxed text-ink-muted">
-                        {item.description}
-                      </p>
+                    <div className="cms-card-body">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
                       {linkUrl && item.link_label && (
-                        <a
-                          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 hover:text-indigo-900"
-                          href={linkUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item.link_label}
-                          <span>↗</span>
+                        <a className="text-link" href={linkUrl} target="_blank" rel="noopener noreferrer">
+                          {item.link_label} <span aria-hidden="true">↗</span>
                         </a>
                       )}
                     </div>

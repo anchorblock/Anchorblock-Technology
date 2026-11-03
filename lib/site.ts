@@ -5,7 +5,7 @@ export const site = {
   title: "Anchorblock Technology — Software & Data Systems Studio",
   description:
     "Anchorblock Technology LLC is a software, web platform and data systems studio in Mirpur DOHS, Dhaka. High-throughput platforms, telemetry architecture and automation for fintech and logistics.",
-  themeColor: "#F5F5F7",
+  themeColor: "#ffffff",
   foundingYear: "2022",
   telephone: "+8801757049684",
   logo: "/anchorblock_logo.jpeg",
@@ -16,6 +16,15 @@ export const site = {
     addressCountry: "BD",
   },
   geo: { latitude: 23.83719, longitude: 90.36898 },
+  email: "faruk@anchorblock.vc",
+  adminEmail: "admin@anchorblock.vc",
+  registration: "C-182691",
+  mapUrl: "https://www.google.com/maps?q=23.83719,90.36898",
+  social: {
+    linkedin: "https://www.linkedin.com/company/anchorblock",
+    facebook: "https://www.facebook.com/anchorblocktechnology",
+    github: "https://github.com/anchorblock",
+  },
 } as const;
 
 /**

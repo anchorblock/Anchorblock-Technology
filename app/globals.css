@@ -1,221 +1,77 @@
 /*
- * Tailwind CSS v4, assembled by hand so the cascade matches the original page, which loaded the
- * Tailwind v3 Play CDN *after* its own stylesheet: site styles sit in the utilities layer, ahead of
- * the generated utilities, so specificity and source order decide conflicts exactly as before.
+ * The public page is styled by design.css (the redesign, unchanged) and sections.css (the parts of the
+ * site the redesign does not cover, in the same visual language). Both are unlayered.
+ *
+ * Tailwind is used only by the admin panel. It scans the admin components alone and skips preflight, so
+ * it cannot change the page; the admin dialog gets its own small reset below.
  */
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "./site.css" layer(utilities);
-@import "tailwindcss/utilities.css" layer(utilities);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../components/admin";
+@import "./design.css";
+@import "./sections.css";
 
 @theme inline {
-  --font-sans: var(--font-jakarta), sans-serif;
-  --font-body: var(--font-inter), sans-serif;
-  --font-serif: var(--font-newsreader), Georgia, serif;
-  --font-mono: var(--font-jetbrains), monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/*
- * Tailwind v3 line heights: fixed rem values rather than v4's unitless ratios, so children with their
- * own smaller font size (e.g. text-[10px] inside text-xs) inherit the same line height as before.
- */
-@theme {
-  --text-xs--line-height: 1rem;
-  --text-sm--line-height: 1.25rem;
-  --text-base--line-height: 1.5rem;
-  --text-lg--line-height: 1.75rem;
-  --text-xl--line-height: 1.75rem;
-  --text-2xl--line-height: 2rem;
-  --text-3xl--line-height: 2.25rem;
-  --text-4xl--line-height: 2.5rem;
-}
-
-/*
- * Colors: the Tailwind v3 palette (hex, as rendered by the original Play CDN build) for the
- * families the site uses, plus the brand colors from the original tailwind.config.
- */
 @theme {
   --color-*: initial;
-  --color-transparent: transparent;
-  --color-current: currentColor;
-  --color-black: #000;
   --color-white: #fff;
 
-  --color-porcelain: #f5f5f7;
-  --color-porcelain-alt: #eaeaee;
-  --color-obsidian: #101014;
-  --color-ink: #1d1d1f;
-  --color-ink-muted: #6e6e73;
-  --color-ink-subtle: #86868b;
+  --color-ink: #061b31;
+  --color-ink-muted: #33445a;
+  --color-ink-subtle: #64748d;
+  --color-porcelain: #f8fafd;
 
-  --color-coral-50: #fff5f2;
-  --color-coral-100: #ffe8e2;
-  --color-coral-400: #ff7457;
-  --color-coral-500: #f25533;
-  --color-coral-600: #d94120;
+  --color-stone-200: #e5edf5;
 
-  --color-marigold-50: #fffbeb;
-  --color-marigold-100: #fef3c7;
-  --color-marigold-400: #fbbf24;
-  --color-marigold-500: #f59e0b;
-  --color-marigold-600: #d97706;
+  /* indigo is the site's brand blue. */
+  --color-indigo-50: #eef1ff;
+  --color-indigo-100: #dfe4fa;
+  --color-indigo-600: #1b33d3;
+  --color-indigo-700: #172ca8;
+  --color-indigo-900: #0f1d72;
 
-  --color-iris-50: #f5f3ff;
-  --color-iris-100: #ede9fe;
-  --color-iris-400: #a78bfa;
-  --color-iris-500: #8b5cf6;
-  --color-iris-600: #7c3aed;
-
-  --color-azure-50: #f0f9ff;
-  --color-azure-100: #e0f2fe;
-  --color-azure-400: #38bdf8;
-  --color-azure-500: #0ea5e9;
-  --color-azure-600: #0284c7;
-
-  --color-slate-50: #f8fafc;
-  --color-slate-100: #f1f5f9;
-  --color-slate-200: #e2e8f0;
-  --color-slate-300: #cbd5e1;
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
-  --color-slate-950: #020617;
-
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  --color-gray-950: #030712;
-
-  --color-stone-50: #fafaf9;
-  --color-stone-100: #f5f5f4;
-  --color-stone-200: #e7e5e4;
-  --color-stone-300: #d6d3d1;
-  --color-stone-400: #a8a29e;
-  --color-stone-500: #78716c;
-  --color-stone-600: #57534e;
-  --color-stone-700: #44403c;
-  --color-stone-800: #292524;
-  --color-stone-900: #1c1917;
-  --color-stone-950: #0c0a09;
-
-  --color-amber-50: #fffbeb;
-  --color-amber-100: #fef3c7;
-  --color-amber-200: #fde68a;
-  --color-amber-300: #fcd34d;
-  --color-amber-400: #fbbf24;
-  --color-amber-500: #f59e0b;
-  --color-amber-600: #d97706;
-  --color-amber-700: #b45309;
-  --color-amber-800: #92400e;
-  --color-amber-900: #78350f;
-  --color-amber-950: #451a03;
-
-  --color-lime-50: #f7fee7;
-  --color-lime-100: #ecfccb;
-  --color-lime-200: #d9f99d;
-  --color-lime-300: #bef264;
-  --color-lime-400: #a3e635;
-  --color-lime-500: #84cc16;
-  --color-lime-600: #65a30d;
-  --color-lime-700: #4d7c0f;
-  --color-lime-800: #3f6212;
-  --color-lime-900: #365314;
-  --color-lime-950: #1a2e05;
-
-  --color-sky-50: #f0f9ff;
-  --color-sky-100: #e0f2fe;
-  --color-sky-200: #bae6fd;
-  --color-sky-300: #7dd3fc;
-  --color-sky-400: #38bdf8;
-  --color-sky-500: #0ea5e9;
-  --color-sky-600: #0284c7;
-  --color-sky-700: #0369a1;
-  --color-sky-800: #075985;
-  --color-sky-900: #0c4a6e;
-  --color-sky-950: #082f49;
-
-  --color-violet-50: #f5f3ff;
-  --color-violet-100: #ede9fe;
-  --color-violet-200: #ddd6fe;
-  --color-violet-300: #c4b5fd;
-  --color-violet-400: #a78bfa;
-  --color-violet-500: #8b5cf6;
-  --color-violet-600: #7c3aed;
-  --color-violet-700: #6d28d9;
-  --color-violet-800: #5b21b6;
-  --color-violet-900: #4c1d95;
-  --color-violet-950: #2e1065;
+  --color-emerald-50: #e9fff6;
+  --color-emerald-200: #b4ecd5;
+  --color-emerald-700: #12805c;
+  --color-emerald-900: #0b4a36;
 
   --color-rose-50: #fff1f2;
-  --color-rose-100: #ffe4e6;
   --color-rose-200: #fecdd3;
-  --color-rose-300: #fda4af;
-  --color-rose-400: #fb7185;
-  --color-rose-500: #f43f5e;
-  --color-rose-600: #e11d48;
   --color-rose-700: #be123c;
-  --color-rose-800: #9f1239;
   --color-rose-900: #881337;
-  --color-rose-950: #4c0519;
-
-  /* indigo and emerald: v3 palettes with the original config's overrides for 50, 100, 400, 500 and 600. */
-  --color-indigo-50: #eef2ff;
-  --color-indigo-100: #e0e7ff;
-  --color-indigo-200: #c7d2fe;
-  --color-indigo-300: #a5b4fc;
-  --color-indigo-400: #818cf8;
-  --color-indigo-500: #4f46e5;
-  --color-indigo-600: #4338ca;
-  --color-indigo-700: #4338ca;
-  --color-indigo-800: #3730a3;
-  --color-indigo-900: #312e81;
-  --color-indigo-950: #1e1b4b;
-
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-200: #a7f3d0;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
-  --color-emerald-800: #065f46;
-  --color-emerald-900: #064e3b;
-  --color-emerald-950: #022c22;
 }
 
-/*
- * Tailwind v3 preflight behavior that v4 changed.
- * Also note: a few columns use `[&>*+*]:mt-*` instead of `space-y-*` because their first child is an
- * inline-flex label, and v4's space-y (margin-bottom on that label) lays the line out 2px tighter.
- */
+/* The parts of Tailwind's preflight the admin dialog relies on. */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  .admin-modal *,
+  .admin-modal ::before,
+  .admin-modal ::after {
+    margin: 0;
+    padding: 0;
+    border: 0 solid var(--color-stone-200);
   }
 
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--color-gray-400);
+  .admin-modal :where(h1, h2, h3, h4) {
+    font-size: inherit;
+    font-weight: inherit;
   }
 
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
+  .admin-modal :where(ul, ol) {
+    list-style: none;
+  }
+
+  .admin-modal :where(button) {
+    color: inherit;
+    background: transparent;
     cursor: pointer;
+  }
+
+  .admin-modal :where(button:disabled) {
+    cursor: default;
   }
 }

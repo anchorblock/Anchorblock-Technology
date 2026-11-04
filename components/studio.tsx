@@ -33,14 +33,14 @@ export function Studio() {
               Open Google Maps <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <div className="map-card" role="img" aria-label="Map location: Mirpur DOHS, Dhaka">
-            <div className="map-card-grid" />
-            <div className="map-road road-one" />
-            <div className="map-road road-two" />
-            <div className="map-road road-three" />
-            <div className="map-pin">
-              <span />
-            </div>
+          <div className="map-card">
+            <iframe
+              className="map-card-frame"
+              src={site.mapEmbedUrl}
+              title="Map of the Anchorblock office in Mirpur DOHS, Dhaka"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
             <div className="map-card-caption">
               <b>MIRPUR DOHS, DHAKA</b>
               <span>23.83719° N / 90.36898° E</span>

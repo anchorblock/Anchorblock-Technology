@@ -46,9 +46,14 @@ export async function SiteFooter() {
         </div>
         <div className="footer-column">
           <h2>Contact</h2>
-          <a href={`tel:${site.telephone}`}>+880 1757 049 684</a>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-          <a href={`mailto:${site.adminEmail}`}>{site.adminEmail}</a>
+          <>
+            <a href={`tel:${site.telephone}`}>+880 1757 049 684</a>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </>
+          <>
+            <a href={`tel:${site.adminPhone}`}>+880 1779 250 850</a>
+            <a href={`mailto:${site.adminEmail}`}>{site.adminEmail}</a>
+          </>
         </div>
         <div className="footer-column">
           <h2>Connect</h2>

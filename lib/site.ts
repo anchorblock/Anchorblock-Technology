@@ -18,8 +18,10 @@ export const site = {
   geo: { latitude: 23.83719, longitude: 90.36898 },
   email: "faruk@anchorblock.vc",
   adminEmail: "admin@anchorblock.vc",
+  adminPhone: "+8801779250850",
   registration: "C-182691",
   mapUrl: "https://www.google.com/maps?q=23.83719,90.36898",
+  mapEmbedUrl: "https://maps.google.com/maps?q=23.83719,90.36898&z=16&output=embed",
   social: {
     linkedin: "https://www.linkedin.com/company/anchorblock",
     facebook: "https://www.facebook.com/anchorblocktechnology",
@@ -33,7 +35,7 @@ export const site = {
  */
 export const siteUrl = new URL(
   process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "https://anchorblock-technology.vercel.app"),
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://anchorblock-technology.vercel.app"),
 );

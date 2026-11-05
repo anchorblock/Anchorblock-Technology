@@ -1,11 +1,11 @@
 "use client";
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { refreshPublicContent } from "@/app/actions";
 import { safeUrl } from "@/lib/safe-url";
 import type { SupabaseConfig } from "@/lib/supabase/config";
-import { ADMIN_OPEN_EVENT } from "@/lib/ui-events";
 
 type Status = { message: string; kind: "info" | "error" | "success" };
 type Row = { id: string; title: string; published: boolean; section_title?: string };
@@ -57,18 +57,18 @@ function AdminRow({
   );
 }
 
+const NOT_CONFIGURED = "Admin publishing is not configured. Add the Supabase environment variables in Vercel and redeploy.";
+
 /**
- * Sign-in and publishing workspace for site content and career circulars. Supabase row-level security
- * enforces who may write; supabase-js is only downloaded once the panel is first opened.
+ * Sign-in and publishing workspace for site content and career circulars, served at /admin. Supabase
+ * row-level security enforces who may write; this page only offers the controls.
  */
-export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
-  const [open, setOpen] = useState(false);
-  const [status, setStatus] = useState<Status | null>(null);
+export function AdminWorkspace({ config }: { config: SupabaseConfig | null }) {
+  const [status, setStatus] = useState<Status | null>(config ? null : { message: NOT_CONFIGURED, kind: "error" });
   const [authorized, setAuthorized] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
   const [lists, setLists] = useState<Lists>({ content: null, careers: null });
   const clientRef = useRef<Promise<SupabaseClient> | null>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -78,7 +78,13 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
     if (!config) return null;
     clientRef.current ??= import("@supabase/supabase-js").then(({ createClient }) =>
       createClient(config.url, config.publishableKey, {
-        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false },
+        // Sessions live in sessionStorage, so closing the browser signs the admin out.
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: false,
+          storage: window.sessionStorage,
+        },
       }),
     );
     return clientRef.current;
@@ -134,44 +140,25 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
     await loadAdminLists(supabase);
   }
 
-  // Open from any "Admin" button; on first open, resume an existing session.
+  // Resume a session from earlier in this browser session.
   useEffect(() => {
-    const onOpen = () => {
-      setOpen(true);
-      const client = getClient();
-      if (!client) {
-        report("Admin publishing needs Supabase environment variables in Vercel. See README.md for setup.", "error");
-        return;
-      }
-      void client.then(async (supabase) => {
-        const {
-          data: { session },
-        } = await supabase.auth.getSession();
-        if (session && !authorized) await enterWorkspace(supabase);
-      });
-    };
-    window.addEventListener(ADMIN_OPEN_EVENT, onOpen);
-    return () => window.removeEventListener(ADMIN_OPEN_EVENT, onOpen);
-  });
-
-  useEffect(() => {
-    document.body.classList.toggle("overflow-hidden", open);
-    if (!open) return;
     emailRef.current?.focus();
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+    const client = getClient();
+    if (!client) return;
+    void client.then(async (supabase) => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session) await enterWorkspace(supabase);
+    });
+    // Runs once on load; the helpers it calls only read refs and set state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function signIn(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const client = getClient();
-    if (!client) {
-      report("Admin publishing is not configured yet. Add the Supabase Vercel environment variables and redeploy.", "error");
-      return;
-    }
+    if (!client) return report(NOT_CONFIGURED, "error");
     const supabase = await client;
     setSigningIn(true);
     const { error } = await supabase.auth.signInWithPassword({
@@ -257,16 +244,8 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
   }
 
   return (
-    <div
-      ref={modalRef}
-      id="admin-modal"
-      className={`admin-modal${open ? "" : " hidden"}`}
-      aria-hidden={!open}
-      onClick={(event) => {
-        if (event.target === modalRef.current) setOpen(false);
-      }}
-    >
-      <section className="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+    <main className="admin-page">
+      <section className="admin-dialog" aria-labelledby="admin-title">
         <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-stone-200 bg-white/95 px-5 py-4 sm:px-7 backdrop-blur-xl">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700">
@@ -281,21 +260,18 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
               </svg>
             </div>
             <div>
-              <h2 id="admin-title" className="font-bold text-ink">
+              <h1 id="admin-title" className="font-bold text-ink">
                 Anchorblock Admin
-              </h2>
+              </h1>
               <p className="text-[11px] font-mono text-ink-subtle">Content &amp; careers</p>
             </div>
           </div>
-          <button
-            type="button"
-            id="admin-close"
+          <Link
+            href="/"
             className="rounded-full border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-ink-muted hover:text-ink"
-            aria-label="Close admin panel"
-            onClick={() => setOpen(false)}
           >
-            Close
-          </button>
+            Back to site
+          </Link>
         </div>
         <div className="p-5 sm:p-7">
           <p
@@ -468,7 +444,7 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
               </section>
               <section className="rounded-2xl border border-stone-200 bg-white p-5 sm:p-6">
                 <h4 className="mb-1 text-base font-bold text-ink">Post a career circular</h4>
-                <p className="mb-5 text-xs text-ink-muted">Published roles appear in the public Careers section.</p>
+                <p className="mb-5 text-xs text-ink-muted">Published roles appear on the public Careers page.</p>
                 <form id="career-form" className="space-y-4" onSubmit={addCareer}>
                   <div>
                     <label className="admin-label" htmlFor="career-title">
@@ -587,6 +563,6 @@ export function AdminPanel({ config }: { config: SupabaseConfig | null }) {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

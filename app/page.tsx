@@ -1,8 +1,4 @@
-import Image from "next/image";
-import { AdminOpenButton } from "@/components/admin/admin-open-button";
-import { AdminPanel } from "@/components/admin/admin-panel";
 import { Capabilities } from "@/components/capabilities";
-import { Careers } from "@/components/careers";
 import { ClientWork } from "@/components/client-work";
 import { Contact } from "@/components/contact";
 import { CustomSections } from "@/components/custom-sections";
@@ -18,7 +14,6 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Studio } from "@/components/studio";
 import { site, siteUrl } from "@/lib/site";
-import { getSupabaseConfig } from "@/lib/supabase/config";
 
 const organization = {
   "@context": "https://schema.org",
@@ -72,20 +67,9 @@ export default function Home() {
         {/* Team section (components/team.tsx) is hidden for now; render <Team /> here to restore it. */}
         {/* Custom sections published by the Anchorblock admin workspace */}
         <CustomSections />
-        <Careers />
         <Contact />
       </main>
       <SiteFooter />
-      <AdminOpenButton
-        type="button"
-        className="admin-floating-button"
-        aria-label="Open Anchorblock admin login"
-      >
-        <Image src="/anchorblock_logo.jpeg" alt="" width={200} height={200} sizes="36px" />
-        <span>Admin</span>
-      </AdminOpenButton>
-      {/* Admin sign-in and publishing workspace */}
-      <AdminPanel config={getSupabaseConfig()} />
       <RevealObserver />
       <JsonLd data={organization} />
     </>

@@ -8,6 +8,12 @@ export const site = {
   themeColor: "#ffffff",
   foundingYear: "2022",
   telephone: "+8801757049684",
+  telephoneLabel: "+880 1757 049 684",
+  email: "faruk@anchorblock.vc",
+  /** The footer lists only the administration office. */
+  adminPhone: "+8801779250850",
+  adminPhoneLabel: "+880 1779 250 850",
+  adminEmail: "admin@anchorblock.vc",
   logo: "/anchorblock_logo.jpeg",
   address: {
     streetAddress: "House 432, Road 6, Mirpur DOHS",
@@ -16,9 +22,6 @@ export const site = {
     addressCountry: "BD",
   },
   geo: { latitude: 23.83719, longitude: 90.36898 },
-  email: "faruk@anchorblock.vc",
-  adminEmail: "admin@anchorblock.vc",
-  adminPhone: "+8801779250850",
   registration: "C-182691",
   mapUrl: "https://www.google.com/maps?q=23.83719,90.36898",
   mapEmbedUrl: "https://maps.google.com/maps?q=23.83719,90.36898&z=16&output=embed",

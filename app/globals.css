@@ -2,8 +2,8 @@
  * The public page is styled by design.css (the redesign, unchanged) and sections.css (the parts of the
  * site the redesign does not cover, in the same visual language). Both are unlayered.
  *
- * Tailwind is used only by the admin panel. It scans the admin components alone and skips preflight, so
- * it cannot change the page; the admin dialog gets its own small reset below.
+ * Tailwind is used only by the admin workspace. It scans the admin components alone and skips preflight,
+ * so it cannot change the public pages; the workspace gets its own small reset below.
  */
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme);
@@ -46,32 +46,32 @@
   --color-rose-900: #881337;
 }
 
-/* The parts of Tailwind's preflight the admin dialog relies on. */
+/* The parts of Tailwind's preflight the admin workspace relies on. */
 @layer base {
-  .admin-modal *,
-  .admin-modal ::before,
-  .admin-modal ::after {
+  .admin-page *,
+  .admin-page ::before,
+  .admin-page ::after {
     margin: 0;
     padding: 0;
     border: 0 solid var(--color-stone-200);
   }
 
-  .admin-modal :where(h1, h2, h3, h4) {
+  .admin-page :where(h1, h2, h3, h4) {
     font-size: inherit;
     font-weight: inherit;
   }
 
-  .admin-modal :where(ul, ol) {
+  .admin-page :where(ul, ol) {
     list-style: none;
   }
 
-  .admin-modal :where(button) {
+  .admin-page :where(button) {
     color: inherit;
     background: transparent;
     cursor: pointer;
   }
 
-  .admin-modal :where(button:disabled) {
+  .admin-page :where(button:disabled) {
     cursor: default;
   }
 }

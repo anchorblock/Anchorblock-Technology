@@ -1,41 +1,36 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ADMIN_OPEN_EVENT } from "@/lib/ui-events";
 
 const NAV_LINKS = [
-  { href: "#products", label: "Products" },
-  { href: "#client-work", label: "Client work" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#studio", label: "Studio" },
-  { href: "#careers", label: "Careers" },
+  { href: "/#products", label: "Products" },
+  { href: "/#client-work", label: "Client work" },
+  { href: "/#capabilities", label: "Capabilities" },
+  { href: "/#studio", label: "Studio" },
+  { href: "/careers", label: "Careers" },
 ];
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
 
-  // Escape closes the mobile menu and returns focus to its button; opening the admin panel closes it too.
+  // Escape closes the mobile menu and returns focus to its button.
   useEffect(() => {
-    const close = () => setMenuOpen(false);
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape" || menuButton.current?.getAttribute("aria-expanded") !== "true") return;
-      close();
+      setMenuOpen(false);
       menuButton.current.focus();
     };
     document.addEventListener("keydown", onKeyDown);
-    window.addEventListener(ADMIN_OPEN_EVENT, close);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener(ADMIN_OPEN_EVENT, close);
-    };
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
   return (
     <header className="site-header">
       <div className="header-inner wrap">
-        <a className="brand" href="#top" aria-label="Anchorblock Technology home">
+        <Link className="brand" href="/#top" aria-label="Anchorblock Technology home">
           <Image
             className="brand-logo"
             src="/brand/anchorblock-logo-main.png"
@@ -45,7 +40,7 @@ export function SiteHeader() {
             sizes="152px"
             loading="eager"
           />
-        </a>
+        </Link>
         <button
           ref={menuButton}
           className="menu-toggle"
@@ -69,13 +64,13 @@ export function SiteHeader() {
           }}
         >
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href}>
+            <Link key={link.href} href={link.href}>
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a className="nav-contact" href="#contact">
+          <Link className="nav-contact" href="/#contact">
             Let’s talk <span aria-hidden="true">↗</span>
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

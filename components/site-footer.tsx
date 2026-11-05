@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { cacheLife } from "next/cache";
-import { AdminOpenButton } from "@/components/admin/admin-open-button";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 async function currentYear() {
@@ -14,7 +14,7 @@ export async function SiteFooter() {
     <footer className="site-footer">
       <div className="wrap footer-main">
         <div className="footer-brand">
-          <a className="brand footer-brand-link" href="#top" aria-label="Anchorblock Technology home">
+          <Link className="brand footer-brand-link" href="/" aria-label="Anchorblock Technology home">
             <Image
               className="brand-logo footer-logo"
               src="/brand/anchorblock-logo-white.svg"
@@ -23,7 +23,7 @@ export async function SiteFooter() {
               height={668}
               unoptimized
             />
-          </a>
+          </Link>
           <p>
             Thoughtful products.
             <br />
@@ -46,18 +46,12 @@ export async function SiteFooter() {
         </div>
         <div className="footer-column">
           <h2>Contact</h2>
-          <>
-            <a href={`tel:${site.telephone}`}>+880 1757 049 684</a>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-          </>
-          <>
-            <a href={`tel:${site.adminPhone}`}>+880 1779 250 850</a>
-            <a href={`mailto:${site.adminEmail}`}>{site.adminEmail}</a>
-          </>
+          <a href={`tel:${site.telephone}`}>{site.telephoneLabel}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
         </div>
         <div className="footer-column">
           <h2>Connect</h2>
-          <a href="#careers">Careers</a>
+          <Link href="/careers">Careers</Link>
           <a href={site.social.linkedin} target="_blank" rel="noreferrer">
             LinkedIn ↗
           </a>
@@ -67,15 +61,12 @@ export async function SiteFooter() {
           <a href={site.social.github} target="_blank" rel="noreferrer">
             GitHub ↗
           </a>
-          <a href="#contact">Send us a message ↗</a>
-          <AdminOpenButton type="button" className="footer-admin">
-            Admin login
-          </AdminOpenButton>
+          <Link href="/#contact">Send us a message ↗</Link>
         </div>
       </div>
       <div className="wrap footer-bottom">
         <span>© {await currentYear()} Anchorblock Technology</span>
-        <a href="#top">Back to top ↑</a>
+        <a href="#main">Back to top ↑</a>
       </div>
     </footer>
   );

@@ -42,6 +42,7 @@ function jobPostings(roles: CareerPost[]) {
   }));
 }
 
+/** The /careers page body: open roles published from the admin workspace. */
 export async function Careers() {
   const result = await getOpenCareerPosts();
   const roles = result.status === "ok" ? result.data : [];
@@ -57,12 +58,12 @@ export async function Careers() {
       <div className="wrap">
         <div className="section-heading careers-heading">
           <div>
-            <p className="section-kicker">07 / CAREERS</p>
-            <h2 id="careers-title">
+            <p className="section-kicker">CAREERS</p>
+            <h1 id="careers-title">
               Build useful things
               <br />
               <span>with us.</span>
-            </h2>
+            </h1>
             <p className="section-intro section-intro-wrap">
               We bring product thinking, software engineering, and production support into one team.
               Open roles appear here when we are hiring.

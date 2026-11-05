@@ -27,7 +27,7 @@ export function Studio() {
               <br />
               Bangladesh
             </address>
-            <a href={`tel:${site.telephone}`}>+880 1757 049 684</a>
+            <a href={`tel:${site.telephone}`}>{site.telephoneLabel}</a>
             <p className="registration">Registration {site.registration}</p>
             <a className="text-link" href={site.mapUrl} target="_blank" rel="noreferrer">
               Open Google Maps <span aria-hidden="true">↗</span>

@@ -7,6 +7,13 @@
 /* Philosophy follows the partner band, so it takes over the products section's top spacing. */
 .section-philosophy { padding-top: 88px; border-top: 0; }
 .section-products { border-top: 1px solid var(--line); }
+
+/* A sixth product panel continues the design's sticky stack (each card sits 14px lower than the last). */
+.product-card:nth-child(6) { z-index: 6; top: calc(clamp(80px, 8vh, 94px) + 70px); --product-accent: #b7791f; }
+.product-banking .product-category-chip { border-color: #f0dfb8; color: #8a5a00; background: #fdf6e7; }
+.product-card .banking-visual { background: #eef1f7; }
+.product-card .banking-visual > .product-art { object-fit: contain; }
+
 .section-heading-wide .section-intro-wrap { max-width: 640px; white-space: normal; }
 
 .principle-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
@@ -213,6 +220,7 @@
 }
 @media (max-width: 640px) {
   .section-philosophy { padding-top: 68px; }
+  .product-card:nth-child(6) { top: 113px; }
   .principle-grid, .cms-grid, .career-grid, .repo-grid, .flow-agents { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .principle-card { padding: 20px 18px 22px; }
   .principle-card h3 { margin-top: 16px; font-size: 21px; }

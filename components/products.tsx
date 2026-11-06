@@ -43,6 +43,19 @@ const PRODUCTS = [
     tags: ["Accounting + POS", "Inventory + Payroll", "Voice AI"],
     image: { src: "/work/anchorbooks-cover.png", alt: "AnchorBooks financial dashboard" },
   },
+  {
+    key: "banking",
+    category: "AI BANKING OPERATIONS",
+    name: "Banking Agent Suite",
+    body: "An AI-assisted operations platform for banks. It brings letters of credit, customs clearance and credit recovery into one traceable flow. Agents cross-check the LC against the bill of lading, invoice and packing list, track every import milestone from port to close-out, and prepare recovery notices. Officers review, decide and sign off, with maker–checker controls and a full audit trail. People decide. Agents assist. Everything evidenced.",
+    tags: ["LC examination", "Customs clearance", "Credit recovery", "Maker–checker audit"],
+    image: {
+      src: "/work/banking-agent-suite.png",
+      alt: "Banking Agent Suite LC examination screen comparing the letter of credit with the bill of lading, commercial invoice and packing list, shown on synthetic demo data",
+      width: 1696,
+      height: 960,
+    },
+  },
 ];
 
 /** Product panels stack as the page scrolls: each card is sticky and slides over the one before it. */

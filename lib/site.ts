@@ -7,8 +7,8 @@ export const site = {
     "Anchorblock Technology LLC is a software, web platform and data systems studio in Mirpur DOHS, Dhaka. High-throughput platforms, telemetry architecture and automation for fintech and logistics.",
   themeColor: "#ffffff",
   foundingYear: "2022",
-  telephone: "+8801757049684",
-  telephoneLabel: "+880 1757 049 684",
+  telephone: "+8801747810786",
+  telephoneLabel: "+880 1747 810 786",
   email: "faruk@anchorblock.vc",
   /** The footer lists only the administration office. */
   adminPhone: "+8801779250850",
